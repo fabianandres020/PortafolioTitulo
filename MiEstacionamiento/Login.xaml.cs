@@ -20,6 +20,10 @@ using System.Data;
 using Newtonsoft.Json;
 using System.Net;
 using System.IO;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Web;
+using Negocio;
 
 namespace MiEstacionamiento
 {
@@ -45,32 +49,43 @@ namespace MiEstacionamiento
             
             string email = txtemail.Text.Trim();
             string pass = txtpws.Password.Trim();
-            int valor = 0;
-            Usuario usuario = new Usuario();
-            UsuarioRequest usuarioRequest = new UsuarioRequest();
-            usuarioRequest.Mail = email;
-            usuarioRequest.Clave = pass;
-            string requestUrl = "http://186.64.123.8:8080/mi-estacionamiento-web/usuario/login/ADMIN@ADMIN.CL/admin";
-            //string requestUrl = "http://localhost:8090/mi-estacionamiento-web/usuario/login";
-            object JSONRequest = usuarioRequest;
-            string JSONmethod = "POST";
-            string JSONContentType = "application/json";
-            Type JSONResponseType = typeof(UsuarioResponse);
+            ApiOperacion ops = new ApiOperacion();
+            UsuarioTest user = ops.autentificacion(email, pass);
 
-            MakeRequest(requestUrl, JSONRequest, JSONmethod, JSONContentType, JSONResponseType);
+            if (user == null)
+            {
+                await this.ShowMessageAsync("Usuario No encontrado", "Tus datos son Incorrectos");
+                return;
+            }
+            Globals.LoggedInUser = user;
+            //mostrar ventana estilo w 8
+            await this.ShowMessageAsync("Exito", "Tus datos son correctos");
+            // mostrar la ventana menu
+            Menu _ver = new Menu();
+            //cerrar esta ventana 
+            this.Close();
+            _ver.ShowDialog();
 
-                //mostrar ventana estilo w 8
-                await this.ShowMessageAsync("Exito", "Tus datos son correctos");
-                // mostrar la ventana menu
-                Menu _ver = new Menu();
-                //cerrar esta ventana 
-                this.Close();
-                _ver.ShowDialog();
-            
+            //int valor = 0;
+            //Usuario usuario = new Usuario();
+            //UsuarioRequest usuarioRequest = new UsuarioRequest();
+            //usuarioRequest.Mail = email;
+            //usuarioRequest.Clave = pass;
+            ////string requestUrl = "http://186.64.123.8:8080/mi-estacionamiento-web/usuario/login/ADMIN@ADMIN.CL/admin";
+            //string requestUrl = "http://localhost:8090/mi-estacionamiento-web/usuario/login/adminasdjas/admin";
+            //object JSONRequest = usuarioRequest;
+            //string JSONmethod = "POST";
+            //string JSONContentType = "application/json";
+            //Type JSONResponseType = typeof(UsuarioResponse);
+
+            //MakeRequest(requestUrl, JSONRequest, JSONmethod, JSONContentType, JSONResponseType);
 
 
 
-            
+
+
+
+
         }
         public static object MakeRequest(string requestUrl, object JSONRequest, string JSONmethod, string JSONContentType, Type JSONResponseType)
         {
