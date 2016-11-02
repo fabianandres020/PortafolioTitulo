@@ -15,6 +15,7 @@
         <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Source="Imagenes/Format-Bullets-01.png"/>
         <Label x:Name="label_Copy" Content="Filtrar por " HorizontalAlignment="Left" Margin="10,142,0,0" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="20"/>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="100" Margin="171,142,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="583,242,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
 
     </Grid>
 </Controls:MetroWindow>

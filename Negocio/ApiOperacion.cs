@@ -17,7 +17,25 @@ namespace Negocio
         {
             this.baseUrl = "http://186.64.123.8:8080/mi-estacionamiento-web";
         }
+        public List<Usuario> listar ()
+        {
+            string endpoint = this.baseUrl + "/usuario/selectAll";
+            string method = "POST";
+            WebClient wc = new WebClient();
+            wc.Headers["Content-Type"] = "application/json";
+            try
+            {
+                string response = wc.UploadString(endpoint, method);
+                List<Result> cliente = JsonConvert.DeserializeObject<List<Result>>(response);
+                return JsonConvert.DeserializeObject<List<Usuario>> (response);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            //https://social.msdn.microsoft.com/Forums/es-ES/fc163045-e0c7-4443-9bcf-6ec8eec18fc2/json-c?forum=netfxwebes
 
+        }
         public Usuario Modificar(string rut,string nombre,string apellidoM,string apellidoP,string email,string telefono)
         {
             string endpoint = this.baseUrl + "/usuario/update";

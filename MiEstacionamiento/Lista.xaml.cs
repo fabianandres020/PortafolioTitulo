@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
+using Negocio;
 
 namespace MiEstacionamiento
 {
@@ -25,6 +26,13 @@ namespace MiEstacionamiento
         public Lista()
         {
             InitializeComponent();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            ApiOperacion ops = new ApiOperacion();
+            List<Usuario> datos = ops.listar();
+
         }
     }
 }
