@@ -22,8 +22,8 @@ namespace Negocio
             string method = "POST";
             string json = JsonConvert.SerializeObject(new
             {
-                rutUsuario = rut
-                
+                rutUsuario = "170992210"
+
             });
             WebClient wc = new WebClient();
             wc.Headers["Content-Type"] = "application/json";
