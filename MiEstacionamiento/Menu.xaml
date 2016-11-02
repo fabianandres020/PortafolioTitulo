@@ -12,7 +12,7 @@
         Title="Menu" Height="555" Width="1024" Background="AliceBlue" WindowStartupLocation="CenterScreen">
         
     <Grid>
-        <Controls:Tile Margin="10,112,737,223" Height="Auto" Width="Auto" Title="Modificacion de usuario">
+        <Controls:Tile x:Name="btnModifica" Margin="10,112,737,223" Height="Auto" Width="Auto" Title="Modificacion de usuario" Click="Tile_Click">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="4" Opacity="0.95"/>
             </Controls:Tile.Effect>
@@ -20,7 +20,7 @@
         </Controls:Tile>
         <Label x:Name="label" Content="Mi Estacionamiento" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="48"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="69" Margin="544,20,0,0" VerticalAlignment="Top" Width="72" Stretch="Fill" Source="Imagenes/GPS-Settings.png"/>
-        <Controls:Tile Margin="321,112,441,223" Height="Auto" Width="Auto" Title="Listas de Usuarios">
+        <Controls:Tile x:Name="btnLista" Margin="321,112,441,223" Height="Auto" Width="Auto" Title="Listas de Usuarios" Click="btnLista_Click">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="4" Opacity="0.95"/>
             </Controls:Tile.Effect>

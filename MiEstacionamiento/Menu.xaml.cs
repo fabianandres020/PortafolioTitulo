@@ -32,5 +32,21 @@ namespace MiEstacionamiento
             this.Close();
 
         }
+
+        private void Tile_Click(object sender, RoutedEventArgs e)
+        {
+            ModificacionUsuario _ver = new ModificacionUsuario();
+            //cerrar esta ventana 
+            this.Close();
+            _ver.ShowDialog();
+        }
+
+        private void btnLista_Click(object sender, RoutedEventArgs e)
+        {
+            Lista _ver = new Lista();
+            //cerrar esta ventana 
+            this.Close();
+            _ver.ShowDialog();
+        }
     }
 }

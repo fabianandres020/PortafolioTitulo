@@ -27,5 +27,18 @@ namespace MiEstacionamiento
         {
             InitializeComponent();
         }
+
+        private void btnVolver1_Click(object sender, RoutedEventArgs e)
+        {
+            Menu _ver = new Menu();
+            //cerrar esta ventana 
+            this.Close();
+            _ver.ShowDialog();
+        }
+
+        private void txtBrut_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+        }
     }
 }

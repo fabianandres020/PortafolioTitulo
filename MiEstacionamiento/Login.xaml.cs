@@ -52,19 +52,23 @@ namespace MiEstacionamiento
             ApiOperacion ops = new ApiOperacion();
             UsuarioTest user = ops.autentificacion(email, pass);
 
-            if (user == null)
+            if (user.result == null)
             {
-                await this.ShowMessageAsync("Usuario No encontrado", "Tus datos son Incorrectos");
-                return;
+                await this.ShowMessageAsync("Oh hubo un problema :(", "Tus datos son Incorrectos");
+             
             }
-            Globals.LoggedInUser = user;
-            //mostrar ventana estilo w 8
-            await this.ShowMessageAsync("Exito", "Tus datos son correctos");
-            // mostrar la ventana menu
-            Menu _ver = new Menu();
-            //cerrar esta ventana 
-            this.Close();
-            _ver.ShowDialog();
+            else
+            {
+                Globals.LoggedInUser = user;
+                //mostrar ventana estilo w 8
+                await this.ShowMessageAsync("Exito!", "Tus datos son correctos");
+                // mostrar la ventana menu
+                Menu _ver = new Menu();
+                //cerrar esta ventana 
+                this.Close();
+                _ver.ShowDialog();
+            }
+        
 
             //int valor = 0;
             //Usuario usuario = new Usuario();
@@ -87,46 +91,6 @@ namespace MiEstacionamiento
 
 
         }
-        public static object MakeRequest(string requestUrl, object JSONRequest, string JSONmethod, string JSONContentType, Type JSONResponseType)
-        {
-            try
-            {
-                HttpWebRequest request = WebRequest.Create(requestUrl) as HttpWebRequest;
-                //WebRequest WR = WebRequest.Create(requestUrl);
-
-                //string sb = JsonConvert.SerializeObject(JSONRequest);
-
-                request.Method = JSONmethod;// "POST";
-                request.ContentType = JSONContentType; // "application/json";
-                /**
-                Byte[] bt = Encoding.UTF8.GetBytes(sb);
-                Stream st = request.GetRequestStream();
-                st.Write(bt, 0, bt.Length);
-                st.Close();
-                **/
-
-                using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
-                {
-                    if (response.StatusCode != HttpStatusCode.OK)
-                        throw new Exception(String.Format(
-                        "Server error (HTTP {0}: {1}).",
-                        response.StatusCode,
-                        response.StatusDescription));
-                    //  DataContractJsonSerializer jsonSerializer = new DataContractJsonSerializer(typeof(Response));
-                    // object objResponse = JsonConvert.DeserializeObject();
-                    Stream stream1 = response.GetResponseStream();
-                    StreamReader sr = new StreamReader(stream1);
-                    string strsb = sr.ReadToEnd();
-                    object objResponse = JsonConvert.DeserializeObject(strsb, JSONResponseType);
-
-                    return objResponse;
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                return null;
-            }
-        }
+       
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Negocio
 {
-    public class UsuarioTest
+    public class Result
     {
         public string rutUsuario { get; set; }
         public string nombre { get; set; }
@@ -14,9 +14,15 @@ namespace Negocio
         public string apellidoMaterno { get; set; }
         public string correoUsuario { get; set; }
         public string claveUsuario { get; set; }
-        public object idEstado { get; set; }
+        public int idEstado { get; set; }
         public string fonoUsuario { get; set; }
-        public object idRol { get; set; }
+        public int idRol { get; set; }
+    }
+
+    public class UsuarioTest
+    {
+        public string msg { get; set; }
+        public Result result { get; set; }
         public string access_token { get; set; }
     }
 }

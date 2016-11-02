@@ -14,7 +14,7 @@
         <Label x:Name="label" Content="Modificacion De Usuario" HorizontalAlignment="Left" Margin="171,53,0,0" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="48"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="136" Margin="10,10,0,0" VerticalAlignment="Top" Width="136" Source="Imagenes/User-Modify-negro.png"/>
         <Label x:Name="label_Copy" Content="Buscar Usuario" HorizontalAlignment="Left" Margin="30,176,0,0" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="22"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="33" Margin="238,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="292" RenderTransformOrigin="0.942,-0.154" Controls:TextBoxHelper.Watermark="Ingrese rut " FontSize="18" FontFamily="Century Gothic"/>
+        <TextBox x:Name="txtBrut" HorizontalAlignment="Left" Height="33" Margin="238,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="292" RenderTransformOrigin="0.942,-0.154" Controls:TextBoxHelper.Watermark="Ingrese rut " FontSize="18" FontFamily="Century Gothic" TextChanged="txtBrut_TextChanged"/>
         <Label x:Name="label1" Content="Nombre" HorizontalAlignment="Left" Margin="30,249,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="132"/>
         <Label x:Name="label2" Content="Apellido Paterno" HorizontalAlignment="Left" Margin="30,285,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="184"/>
         <Label x:Name="label3" Content="Apellido Materno" HorizontalAlignment="Left" Margin="30,325,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="184"/>
@@ -22,16 +22,20 @@
         <Label x:Name="label4_Copy" Content="Edad" HorizontalAlignment="Left" Margin="608,289,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.013,2.654" FontFamily="Century Gothic" FontSize="18" Height="36" Width="94"/>
         <Label x:Name="label5" Content="Tipo Usuario" HorizontalAlignment="Left" Margin="30,365,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.553,0.135" FontFamily="Century Gothic" FontSize="18" Height="35" Width="184"/>
         <Label x:Name="label6" Content="Telefono" HorizontalAlignment="Left" Margin="608,325,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="140"/>
-        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="28" Margin="272,250,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="18"/>
-        <TextBox x:Name="textBox1_Copy" HorizontalAlignment="Left" Height="28" Margin="272,286,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="18"/>
-        <TextBox x:Name="textBox1_Copy1" HorizontalAlignment="Left" Height="29" Margin="272,326,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="18"/>
-        <TextBox x:Name="textBox1_Copy2" HorizontalAlignment="Left" Height="29" Margin="710,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="18"/>
-        <TextBox x:Name="textBox1_Copy3" HorizontalAlignment="Left" Height="28" Margin="710,292,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="18"/>
-        <TextBox x:Name="textBox1_Copy4" HorizontalAlignment="Left" Height="28" Margin="710,327,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="18"/>
-        <TextBox x:Name="textBox1_Copy5" HorizontalAlignment="Left" Height="29" Margin="272,366,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="18"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="28" Margin="272,250,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="18"/>
+        <TextBox x:Name="txtApellidoP" HorizontalAlignment="Left" Height="28" Margin="272,286,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="18"/>
+        <TextBox x:Name="txtApellidoM" HorizontalAlignment="Left" Height="29" Margin="272,326,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="18"/>
+        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="29" Margin="710,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="18"/>
+        <TextBox x:Name="TxtEdad" HorizontalAlignment="Left" Height="28" Margin="710,292,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="18"/>
+        <TextBox x:Name="txtTelefono" HorizontalAlignment="Left" Height="28" Margin="710,327,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="18"/>
+        <TextBox x:Name="txtTipoU" HorizontalAlignment="Left" Height="29" Margin="272,366,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="18"/>
         <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="192,458,0,0" VerticalAlignment="Top" Width="236" Height="36" FontFamily="Century Gothic" FontSize="16"/>
         <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="582,458,0,0" VerticalAlignment="Top" Width="236" Height="36" FontFamily="Century Gothic" FontSize="16"/>
-        <Image x:Name="image1" HorizontalAlignment="Left" Height="78" Margin="30,436,0,0" VerticalAlignment="Top" Width="79" Source="Imagenes/Previous.png"/>
+        <Button x:Name="btnVolver1" Content="" HorizontalAlignment="Left" Margin="10,474,0,0" VerticalAlignment="Top" Width="64" Height="60" BorderBrush="{x:Null}" Click="btnVolver1_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Imagenes/Previous.png"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Controls:MetroWindow>

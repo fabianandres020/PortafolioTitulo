@@ -16,6 +16,10 @@ namespace Negocio
         {
             this.baseUrl = "http://186.64.123.8:8080/mi-estacionamiento-web";
         }
+        public UsuarioTest Buscar (string rut)
+        {
+            return ;
+        }
 
         public UsuarioTest autentificacion(string email, string pass)
         {
@@ -23,8 +27,8 @@ namespace Negocio
             string method = "POST";
             string json = JsonConvert.SerializeObject(new
             {
-                correoUsuario = email,
-                claveUsuario = pass
+                mail = email,
+                clave = pass
             });
 
             WebClient wc = new WebClient();
@@ -32,7 +36,9 @@ namespace Negocio
             try
             {
                 string response = wc.UploadString(endpoint, method, json);
+                //UsuarioTest test = JsonConvert.DeserializeObject<UsuarioTest>(response);
                 return JsonConvert.DeserializeObject<UsuarioTest>(response);
+
             }
             catch (Exception)
             {
@@ -42,7 +48,7 @@ namespace Negocio
 
             public UsuarioTest GetUserDetails(UsuarioTest user)
             {
-            string endpoint = this.baseUrl + "/usuario/" + user.rutUsuario;
+            string endpoint = this.baseUrl + "/usuario/" + user.result.rutUsuario;
             string access_token = user.access_token;
 
             WebClient wc = new WebClient();
@@ -58,7 +64,7 @@ namespace Negocio
             catch (Exception)
             {
                 return null;
-            }
+            }   
         }
 
     }
