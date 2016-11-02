@@ -26,7 +26,7 @@
         <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="29" Margin="680,249,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="16" IsReadOnly="True"/>
         <TextBox x:Name="txtTelefono" HorizontalAlignment="Left" Height="28" Margin="192,384,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="16" IsReadOnly="True"/>
         <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="192,458,0,0" VerticalAlignment="Top" Width="236" Height="36" FontFamily="Century Gothic" FontSize="16" Click="btnEditar_Click"/>
-        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="582,458,0,0" VerticalAlignment="Top" Width="236" Height="36" FontFamily="Century Gothic" FontSize="16"/>
+        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="582,458,0,0" VerticalAlignment="Top" Width="236" Height="36" FontFamily="Century Gothic" FontSize="16" Click="btnGuardar_Click"/>
         <Button x:Name="btnVolver1" Content="" HorizontalAlignment="Left" Margin="10,474,0,0" VerticalAlignment="Top" Width="64" Height="60" BorderBrush="{x:Null}" Click="btnVolver1_Click" Foreground="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="Imagenes/Previous.png"/>
