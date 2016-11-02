@@ -41,11 +41,24 @@ namespace MiEstacionamiento
             
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private async void button_Click(object sender, RoutedEventArgs e)
         {
             string rut = txtBrut.Text.Trim();
             ApiOperacion ops = new ApiOperacion();
-            UsuarioTest user = ops.Buscar(rut);
+            Usuario user = ops.Buscar(rut);
+            if (user.result[0] == null)
+            {
+                await this.ShowMessageAsync("Oh hubo un problema :(", "Rut no Encontrado");
+            }
+            else
+            {
+                txtNombre.Text = user.result[0].nombre;
+                txtApellidoM.Text = user.result[0].apellidoMaterno;
+                txtApellidoP.Text = user.result[0].apellidoPaterno;
+                txtTipoU.Text = user.result[0].idRol.ToString();
+                txtDireccion.Text = user.result[0].correoUsuario;
+                txtTelefono.Text = "falta";
+            }
         }
     }
 }

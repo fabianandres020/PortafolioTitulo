@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Net;
+using MiEstacionamiento;
 
 namespace Negocio
 {
@@ -16,13 +17,13 @@ namespace Negocio
         {
             this.baseUrl = "http://186.64.123.8:8080/mi-estacionamiento-web";
         }
-        public UsuarioTest Buscar (string rut)
+        public Usuario Buscar (string rut)
         {
-            string endpoint = this.baseUrl + "/usuario/slectByRut";
+            string endpoint = this.baseUrl + "/usuario/selectByRut";
             string method = "POST";
             string json = JsonConvert.SerializeObject(new
             {
-                rutUsuario = "170992210"
+                rutUsuario = rut
 
             });
             WebClient wc = new WebClient();
@@ -30,8 +31,8 @@ namespace Negocio
             try
             {
                 string response = wc.UploadString(endpoint, method, json);
-                //UsuarioTest test = JsonConvert.DeserializeObject<UsuarioTest>(response);
-                return JsonConvert.DeserializeObject<UsuarioTest>(response);
+                Usuario test = JsonConvert.DeserializeObject<Usuario>(response);
+                return JsonConvert.DeserializeObject<Usuario>(response);
 
             }
             catch (Exception)
