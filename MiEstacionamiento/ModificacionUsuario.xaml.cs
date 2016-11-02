@@ -26,6 +26,7 @@ namespace MiEstacionamiento
         public ModificacionUsuario()
         {
             InitializeComponent();
+
         }
 
         private void btnVolver1_Click(object sender, RoutedEventArgs e)
@@ -38,27 +39,70 @@ namespace MiEstacionamiento
 
         private void txtBrut_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
+
         }
 
         private async void button_Click(object sender, RoutedEventArgs e)
         {
-            string rut = txtBrut.Text.Trim();
-            ApiOperacion ops = new ApiOperacion();
-            Usuario user = ops.Buscar(rut);
-            if (user.result[0] == null)
+            //string rut = txtBrut.Text.Trim();
+            //ApiOperacion ops = new ApiOperacion();
+            //Usuario user = ops.Buscar(rut);
+            //if (user.result[0] == null)
+            //{
+            //    await this.ShowMessageAsync("Oh hubo un problema :(", "Rut no Encontrado");
+            //}
+            //else
+            //{
+            //    txtNombre.Text = user.result[0].nombre;
+            //    txtApellidoM.Text = user.result[0].apellidoMaterno;
+            //    txtApellidoP.Text = user.result[0].apellidoPaterno;
+            //    txtEmail.Text = user.result[0].correoUsuario;
+            //    txtTelefono.Text = user.result[0].fonoUsuario;
+            //    txtDireccion.Text = "falta";
+            //}
+        }
+
+        private void txtBrut_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
             {
-                await this.ShowMessageAsync("Oh hubo un problema :(", "Rut no Encontrado");
+                int ascci = Convert.ToInt32(Convert.ToChar(e.Text));
+                if (ascci >= 48 && ascci <= 57) e.Handled = false;
+                else e.Handled = true;
             }
-            else
+        }
+
+        private async void txtBrut_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
             {
-                txtNombre.Text = user.result[0].nombre;
-                txtApellidoM.Text = user.result[0].apellidoMaterno;
-                txtApellidoP.Text = user.result[0].apellidoPaterno;
-                txtEmail.Text = user.result[0].correoUsuario;
-                txtTelefono.Text = user.result[0].fonoUsuario;
-                txtDireccion.Text = "falta";
+                string rut = txtBrut.Text.Trim();
+                ApiOperacion ops = new ApiOperacion();
+                Usuario user = ops.Buscar(rut);
+                if (user.result[0] == null)
+                {
+                    await this.ShowMessageAsync("Oh hubo un problema :(", "Rut no Encontrado");
+                }
+                else
+                {
+                    txtNombre.Text = user.result[0].nombre;
+                    txtApellidoM.Text = user.result[0].apellidoMaterno;
+                    txtApellidoP.Text = user.result[0].apellidoPaterno;
+                    txtEmail.Text = user.result[0].correoUsuario;
+                    txtTelefono.Text = user.result[0].fonoUsuario;
+                    txtDireccion.Text = "falta";
+                } 
             }
+        }
+
+        private void btnEditar_Click(object sender, RoutedEventArgs e)
+        {
+          
+            txtNombre.IsReadOnly = false;
+            txtApellidoM.IsReadOnly = false;
+            txtApellidoP.IsReadOnly = false;
+            txtEmail.IsReadOnly = false;
+            txtTelefono.IsReadOnly = false;
+            txtDireccion.IsReadOnly = false;
         }
     }
 }

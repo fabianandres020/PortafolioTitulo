@@ -14,27 +14,27 @@
         <Label x:Name="label" Content="Modificacion De Usuario" HorizontalAlignment="Left" Margin="171,53,0,0" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="48"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="136" Margin="10,10,0,0" VerticalAlignment="Top" Width="136" Source="Imagenes/User-Modify-negro.png"/>
         <Label x:Name="label_Copy" Content="Buscar Usuario" HorizontalAlignment="Left" Margin="30,176,0,0" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="22"/>
-        <TextBox x:Name="txtBrut" HorizontalAlignment="Left" Height="33" Margin="238,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="292" RenderTransformOrigin="0.942,-0.154" Controls:TextBoxHelper.Watermark="Ingrese rut " FontSize="18" FontFamily="Century Gothic" TextChanged="txtBrut_TextChanged"/>
+        <TextBox x:Name="txtBrut" HorizontalAlignment="Left" Height="33" Margin="238,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="292" RenderTransformOrigin="0.942,-0.154" Controls:TextBoxHelper.Watermark="Ingrese rut " FontSize="18" FontFamily="Century Gothic" TextChanged="txtBrut_TextChanged" PreviewTextInput="txtBrut_PreviewTextInput" KeyDown="txtBrut_KeyDown"/>
         <Label x:Name="label1" Content="Nombre" HorizontalAlignment="Left" Margin="4,249,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="132"/>
         <Label x:Name="label2" Content="Apellido Paterno" HorizontalAlignment="Left" Margin="4,291,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="184"/>
         <Label x:Name="label3" Content="Apellido Materno" HorizontalAlignment="Left" Margin="4,332,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="184"/>
         <Label x:Name="label4" Content="Direcion" HorizontalAlignment="Left" Margin="548,249,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="132"/>
         <Label x:Name="label6" Content="Telefono" HorizontalAlignment="Left" Margin="4,377,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="140"/>
-        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="28" Margin="192,249,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="16"/>
-        <TextBox x:Name="txtApellidoP" HorizontalAlignment="Left" Height="28" Margin="193,298,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="16"/>
-        <TextBox x:Name="txtApellidoM" HorizontalAlignment="Left" Height="29" Margin="193,338,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="16"/>
-        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="29" Margin="680,249,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="16"/>
-        <TextBox x:Name="txtTelefono" HorizontalAlignment="Left" Height="28" Margin="192,384,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="16"/>
-        <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="192,458,0,0" VerticalAlignment="Top" Width="236" Height="36" FontFamily="Century Gothic" FontSize="16"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="28" Margin="192,249,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="16" IsReadOnly="True"/>
+        <TextBox x:Name="txtApellidoP" HorizontalAlignment="Left" Height="28" Margin="193,298,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="16" IsReadOnly="True"/>
+        <TextBox x:Name="txtApellidoM" HorizontalAlignment="Left" Height="29" Margin="193,338,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="16" IsReadOnly="True"/>
+        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="29" Margin="680,249,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="16" IsReadOnly="True"/>
+        <TextBox x:Name="txtTelefono" HorizontalAlignment="Left" Height="28" Margin="192,384,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="16" IsReadOnly="True"/>
+        <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="192,458,0,0" VerticalAlignment="Top" Width="236" Height="36" FontFamily="Century Gothic" FontSize="16" Click="btnEditar_Click"/>
         <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="582,458,0,0" VerticalAlignment="Top" Width="236" Height="36" FontFamily="Century Gothic" FontSize="16"/>
-        <Button x:Name="btnVolver1" Content="" HorizontalAlignment="Left" Margin="10,474,0,0" VerticalAlignment="Top" Width="64" Height="60" BorderBrush="{x:Null}" Click="btnVolver1_Click">
+        <Button x:Name="btnVolver1" Content="" HorizontalAlignment="Left" Margin="10,474,0,0" VerticalAlignment="Top" Width="64" Height="60" BorderBrush="{x:Null}" Click="btnVolver1_Click" Foreground="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="Imagenes/Previous.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="548,184,0,0" VerticalAlignment="Top" Width="76" Click="button_Click" RenderTransformOrigin="0.434,-0.5"/>
         <Label x:Name="label4_Copy" Content="Email" HorizontalAlignment="Left" Margin="548,298,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="132"/>
-        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="29" Margin="680,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="16"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="29" Margin="680,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="16" IsReadOnly="True"/>
+        <Image x:Name="image1" HorizontalAlignment="Left" Height="70" Margin="782,10,0,0" VerticalAlignment="Top" Width="224" Source="Imagenes/logo duoc.png"/>
 
     </Grid>
 </Controls:MetroWindow>
