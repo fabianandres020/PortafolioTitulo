@@ -55,9 +55,9 @@ namespace MiEstacionamiento
                 txtNombre.Text = user.result[0].nombre;
                 txtApellidoM.Text = user.result[0].apellidoMaterno;
                 txtApellidoP.Text = user.result[0].apellidoPaterno;
-                txtTipoU.Text = user.result[0].idRol.ToString();
-                txtDireccion.Text = user.result[0].correoUsuario;
-                txtTelefono.Text = "falta";
+                txtEmail.Text = user.result[0].correoUsuario;
+                txtTelefono.Text = user.result[0].fonoUsuario;
+                txtDireccion.Text = "falta";
             }
         }
     }
