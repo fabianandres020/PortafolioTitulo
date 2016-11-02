@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
-
+using Negocio;
 
 namespace MiEstacionamiento
 {
@@ -39,6 +39,13 @@ namespace MiEstacionamiento
         private void txtBrut_TextChanged(object sender, TextChangedEventArgs e)
         {
             
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            string rut = txtBrut.Text.Trim();
+            ApiOperacion ops = new ApiOperacion();
+            UsuarioTest user = ops.Buscar(rut);
         }
     }
 }

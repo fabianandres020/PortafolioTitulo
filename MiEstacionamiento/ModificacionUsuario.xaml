@@ -36,6 +36,7 @@
                 <ImageBrush ImageSource="Imagenes/Previous.png"/>
             </Button.Background>
         </Button>
+        <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="548,184,0,0" VerticalAlignment="Top" Width="76" Click="button_Click" RenderTransformOrigin="0.434,-0.5"/>
 
     </Grid>
 </Controls:MetroWindow>

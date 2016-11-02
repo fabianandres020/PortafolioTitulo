@@ -18,8 +18,28 @@ namespace Negocio
         }
         public UsuarioTest Buscar (string rut)
         {
-            return ;
+            string endpoint = this.baseUrl + "/usuario/slectByRut";
+            string method = "POST";
+            string json = JsonConvert.SerializeObject(new
+            {
+                rutUsuario = rut
+                
+            });
+            WebClient wc = new WebClient();
+            wc.Headers["Content-Type"] = "application/json";
+            try
+            {
+                string response = wc.UploadString(endpoint, method, json);
+                //UsuarioTest test = JsonConvert.DeserializeObject<UsuarioTest>(response);
+                return JsonConvert.DeserializeObject<UsuarioTest>(response);
+
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
+    
 
         public UsuarioTest autentificacion(string email, string pass)
         {
