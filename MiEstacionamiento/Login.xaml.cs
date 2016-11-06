@@ -46,28 +46,38 @@ namespace MiEstacionamiento
 
         private async void btnIngresar_Click(object sender, RoutedEventArgs e)
         {
-            
-            string email = txtemail.Text.Trim();
-            string pass = txtpws.Password.Trim();
-            ApiOperacion ops = new ApiOperacion();
-            UsuarioTest user = ops.autentificacion(email, pass);
+            try
+            {
+                string email = txtemail.Text.Trim();
+                string pass = txtpws.Password.Trim();
+                ApiOperacion ops = new ApiOperacion();
+                UsuarioTest user = ops.autentificacion(email, pass);
+                if (user.result == null)
+                {
+                    await this.ShowMessageAsync("Oh hubo un problema :(", "Tus datos son Incorrectos");
 
-            if (user.result == null)
-            {
-                await this.ShowMessageAsync("Oh hubo un problema :(", "Tus datos son Incorrectos");
-             
+                }
+                else
+                {
+                    Globals.LoggedInUser = user;
+                    //mostrar ventana estilo w 8
+                    await this.ShowMessageAsync("Exito!", "Tus datos son correctos");
+                    // mostrar la ventana menu
+                    Menu _ver = new Menu();
+                    //cerrar esta ventana 
+                    this.Close();
+                    _ver.ShowDialog();
+                }
+
             }
-            else
+            catch (Exception ex)
             {
-                Globals.LoggedInUser = user;
-                //mostrar ventana estilo w 8
-                await this.ShowMessageAsync("Exito!", "Tus datos son correctos");
-                // mostrar la ventana menu
-                Menu _ver = new Menu();
-                //cerrar esta ventana 
-                this.Close();
-                _ver.ShowDialog();
+                string log = ex.Message;
+                await this.ShowMessageAsync("Problema de conexión :(", "Contactar a supervisor");
             }
+           
+
+            
         
 
             //int valor = 0;

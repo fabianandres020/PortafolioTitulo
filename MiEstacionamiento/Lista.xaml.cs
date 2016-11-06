@@ -15,6 +15,7 @@ using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
 using Negocio;
+using System.Data;
 
 namespace MiEstacionamiento
 {
@@ -28,11 +29,65 @@ namespace MiEstacionamiento
             InitializeComponent();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private async void button_Click(object sender, RoutedEventArgs e)
         {
-            ApiOperacion ops = new ApiOperacion();
-            List<Usuario> datos = ops.listar();
+            try
+            {
 
+                ApiOperacion ops = new ApiOperacion();
+                Usuario datos = ops.listar();
+                dataLista.ItemsSource = datos.result;
+            }
+            catch (Exception ex)
+            {
+                string log = ex.Message;
+               await this.ShowMessageAsync("Problema de conexión :(", "Contactar a supervisor");
+            }
+
+
+
+
+        }
+
+        private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        private void dataLista_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+             
+
+        }
+
+        private async void btnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Result usuarioSeleccionado = dataLista.SelectedItem as Result;
+                string rut = usuarioSeleccionado.rutUsuario;
+                ApiOperacion ops = new ApiOperacion();
+                Usuario user = ops.Elminiar(rut);
+                await this.ShowMessageAsync("Operacion Realizada(", "Se a eliminado al usuario");
+
+            }
+            catch (Exception ex)
+            {
+                string log = ex.Message;
+                await this.ShowMessageAsync("Problema de conexión :(", "Contactar a supervisor");
+            }
+
+
+
+
+        }
+
+        private void btnVolver1_Click(object sender, RoutedEventArgs e)
+        {
+            Menu _ver = new Menu();
+            //cerrar esta ventana 
+            this.Close();
+            _ver.ShowDialog();
         }
     }
 }
