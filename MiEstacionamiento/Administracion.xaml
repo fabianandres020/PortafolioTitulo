@@ -50,6 +50,11 @@
             </Controls:Tile.Effect>
             <Image Source="Imagenes/Table.png" Height="148" Width="148" Stretch="Fill"/>
         </Controls:Tile>
+        <Button x:Name="btnVolver" Content="" HorizontalAlignment="Left" Margin="10,475,0,0" VerticalAlignment="Top" Width="52" Height="48" BorderBrush="{x:Null}" Click="btnVolver1_Click" Foreground="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="Imagenes/Previous.png"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Controls:MetroWindow>
