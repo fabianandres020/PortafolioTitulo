@@ -160,8 +160,8 @@
     </None>
     <AppDesigner Include="Properties\" />
     <Resource Include="Resources\Entypo.ttf" />
-    <None Include="Scripts\jquery-3.0.0.min.map" />
-    <None Include="Scripts\jquery-3.0.0.slim.min.map" />
+    <None Include="Scripts\jquery-3.1.1.min.map" />
+    <None Include="Scripts\jquery-3.1.1.slim.min.map" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -169,8 +169,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\WindowsIcons-license.txt" />
-    <Resource Include="Resources\Entypo-license.txt" />
     <Resource Include="Imagenes\User-Login.png" />
     <Resource Include="Imagenes\GPS-Settings.png" />
     <Resource Include="Imagenes\Add-New.png" />
@@ -194,11 +192,6 @@
     <Resource Include="Imagenes\Car-01.png" />
     <Resource Include="Imagenes\Meter-02.png" />
     <Resource Include="Imagenes\Cancel.png" />
-    <Content Include="Scripts\jquery-3.0.0.intellisense.js" />
-    <Content Include="Scripts\jquery-3.0.0.js" />
-    <Content Include="Scripts\jquery-3.0.0.min.js" />
-    <Content Include="Scripts\jquery-3.0.0.slim.js" />
-    <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />
@@ -211,6 +204,16 @@
       <Project>{97846180-a6db-4842-8b7b-1ebdbaf48031}</Project>
       <Name>Negocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Entypo-license.txt" />
+    <Resource Include="Resources\WindowsIcons-license.txt" />
+    <Resource Include="Imagenes\User-Add-black.png" />
+    <Content Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.1.1.js" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
