@@ -80,6 +80,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Administracion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Lista.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -88,6 +92,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="Administracion.xaml.cs">
+      <DependentUpon>Administracion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -178,6 +185,10 @@
     <Resource Include="Imagenes\User-Find.png" />
     <Resource Include="Imagenes\Previous.png" />
     <Resource Include="Imagenes\Format-Bullets-01.png" />
+    <Resource Include="Imagenes\Installation-02.png" />
+    <Resource Include="Imagenes\Car-01.png" />
+    <Resource Include="Imagenes\Meter-02.png" />
+    <Resource Include="Imagenes\Cancel.png" />
     <Content Include="Scripts\jquery-3.0.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />

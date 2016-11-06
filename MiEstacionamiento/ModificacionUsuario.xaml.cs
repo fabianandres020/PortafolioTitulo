@@ -74,7 +74,7 @@ namespace MiEstacionamiento
                     txtApellidoP.Text = user.result[0].apellidoPaterno;
                     txtEmail.Text = user.result[0].correoUsuario;
                     txtTelefono.Text = user.result[0].fonoUsuario;
-                    txtDireccion.Text = "falta";
+                    //txtDireccion.Text = "falta";
                 } 
             }
         }
@@ -87,7 +87,7 @@ namespace MiEstacionamiento
             txtApellidoP.IsReadOnly = false;
             txtEmail.IsReadOnly = false;
             txtTelefono.IsReadOnly = false;
-            txtDireccion.IsReadOnly = false;
+            //txtDireccion.IsReadOnly = false;
 
         }
 
@@ -99,7 +99,7 @@ namespace MiEstacionamiento
             string apellidoP = txtApellidoP.Text.Trim();
             string email = txtEmail.Text.Trim();
             string telefono = txtTelefono.Text.Trim();
-            string direccion = txtDireccion.Text.Trim();
+           // string direccion = txtDireccion.Text.Trim();
             ApiOperacion ops = new ApiOperacion();
             Usuario user = ops.Modificar(rut, nombre, apellidoM, apellidoP, email, telefono);
             await this.ShowMessageAsync("Exito", "Modificacion exitosa");
@@ -109,7 +109,7 @@ namespace MiEstacionamiento
             txtApellidoP.Text = string.Empty;
             txtEmail.Text = string.Empty;
             txtTelefono.Text = string.Empty;
-            txtDireccion.Text = string.Empty;
+            //txtDireccion.Text = string.Empty;
         }
     }
 }

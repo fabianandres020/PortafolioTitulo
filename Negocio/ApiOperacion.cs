@@ -100,7 +100,7 @@ namespace Negocio
             try
             {
                 string response = wc.UploadString(endpoint, method, json);
-                Usuario test = JsonConvert.DeserializeObject<Usuario>(response);
+                //Usuario test = JsonConvert.DeserializeObject<Usuario>(response);
                 return JsonConvert.DeserializeObject<Usuario>(response);
 
             }

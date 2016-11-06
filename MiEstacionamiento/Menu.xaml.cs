@@ -48,5 +48,13 @@ namespace MiEstacionamiento
             this.Close();
             _ver.ShowDialog();
         }
+
+        private void Tile_Click_1(object sender, RoutedEventArgs e)
+        {
+            Administracion _ver = new Administracion();
+            //cerrar esta ventana 
+            this.Close();
+            _ver.ShowDialog();
+        }
     }
 }
