@@ -17,21 +17,21 @@ namespace Negocio
         {
             this.baseUrl = "http://186.64.123.8:8080/mi-estacionamiento-web";
         }
-        public Usuario Ingresar(string rut, string nombre, string apellidoM, string apellidoP, string email)
+        public Usuario Ingresar(string rut, string nombre, string apellidoM, string apellidoP,string telefono, string email, string clave, string rol, string estado)
         {
             string endpoint = this.baseUrl + "/usuario/insert";
             string method = "POST";
             string json = JsonConvert.SerializeObject(new
             {
-                rutUsuario = "192221345",
-                username = "test",
-                apellidoMaterno = "Test",
-                apellidoPaterno = "test",
-                correoUsuario = "test@gmail.com",
-                claveUsuario = "1234",
-                idEstado = "1",
-                fonoUsuario = "1234566",
-                idRol = "1"
+                rutUsuario = rut,
+                nombre = nombre,
+                apellidoPaterno = apellidoP,
+                apellidoMaterno = apellidoM,
+                correoUsuario = email,
+                claveUsuario = clave,
+                idEstado = estado,
+                fonoUsuario = telefono,
+                idRol = rol
 
             });
             WebClient wc = new WebClient();
