@@ -29,7 +29,10 @@ namespace MiEstacionamiento
 
         private void Tile_Click(object sender, RoutedEventArgs e)
         {
-
+            AddUser _ver = new AddUser();
+            //cerrar esta ventana 
+            this.Close();
+            _ver.ShowDialog();
         }
 
         private void btnLista_Click(object sender, RoutedEventArgs e)

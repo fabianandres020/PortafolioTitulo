@@ -17,6 +17,36 @@ namespace Negocio
         {
             this.baseUrl = "http://186.64.123.8:8080/mi-estacionamiento-web";
         }
+        public Usuario Ingresar(string rut, string nombre, string apellidoM, string apellidoP, string email)
+        {
+            string endpoint = this.baseUrl + "/usuario/insert";
+            string method = "POST";
+            string json = JsonConvert.SerializeObject(new
+            {
+                rutUsuario = "192221345",
+                username = "test",
+                apellidoMaterno = "Test",
+                apellidoPaterno = "test",
+                correoUsuario = "test@gmail.com",
+                claveUsuario = "1234",
+                idEstado = "1",
+                fonoUsuario = "1234566",
+                idRol = "1"
+
+            });
+            WebClient wc = new WebClient();
+            wc.Headers["Content-Type"] = "application/json";
+            try
+            {
+                string response = wc.UploadString(endpoint, method, json);
+                return JsonConvert.DeserializeObject<Usuario>(response);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+
+        }
         public Usuario listar ()
         {
             string endpoint = this.baseUrl + "/usuario/selectAll";
@@ -35,7 +65,6 @@ namespace Negocio
             }
 
         }
-
         public Usuario Elminiar(string rut)
         {
             string endpoint = this.baseUrl + "/usuario/deleteByRut";

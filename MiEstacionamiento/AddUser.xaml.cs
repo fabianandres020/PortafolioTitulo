@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
+using Negocio;
 
 namespace MiEstacionamiento
 {
@@ -27,9 +28,17 @@ namespace MiEstacionamiento
             InitializeComponent();
         }
 
-        private void btnGuardar_Click(object sender, RoutedEventArgs e)
+        private async void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-
+            string rut = txtRut.Text.Trim();
+            string nombre = txtNombre.Text.Trim();
+            string apellidoM = txtApellidoM.Text.Trim();
+            string apellidoP = txtApellidoP.Text.Trim();
+            string email = txtEmail.Text.Trim();
+            //string telefono = txtTelefono.Text.Trim();
+            ApiOperacion ops = new ApiOperacion();
+            Usuario user = ops.Ingresar(rut, nombre, apellidoM, apellidoP, email);
+            await this.ShowMessageAsync("Exito", "ingreso exitosa");
         }
     }
 }
