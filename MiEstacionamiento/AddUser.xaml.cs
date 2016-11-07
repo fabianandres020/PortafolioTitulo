@@ -42,12 +42,12 @@ namespace MiEstacionamiento
 
             ApiOperacion ops = new ApiOperacion();
             Usuario user = ops.Ingresar(rut, nombre, apellidoM, apellidoP,telefono, email, clave,rol,estado);
-            await this.ShowMessageAsync("Exito", "ingreso exitosa");
+            await this.ShowMessageAsync("Exito", "Ingreso exitosa");
         }
 
         private void btnVolver1_Click(object sender, RoutedEventArgs e)
         {
-            Menu _ver = new Menu();
+            Administracion _ver = new Administracion();
             //cerrar esta ventana 
             this.Close();
             _ver.ShowDialog();

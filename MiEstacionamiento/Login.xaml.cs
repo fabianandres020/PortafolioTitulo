@@ -38,8 +38,6 @@ namespace MiEstacionamiento
         {
             InitializeComponent();
 
-            
-
         }
 
 

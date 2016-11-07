@@ -6,10 +6,11 @@
         xmlns:local="clr-namespace:MiEstacionamiento"
         mc:Ignorable="d"
         WindowStyle="None"
+       ResizeMode="NoResize"               
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"              
-        Title="Menu" Height="555" Width="1024" Background="AliceBlue" WindowStartupLocation="CenterScreen">
+        Title="Administracion" Height="555" Width="1024" Background="AliceBlue" WindowStartupLocation="CenterScreen">
 
     <Grid>
         <Controls:Tile x:Name="btnNuevoUsuario" Margin="10,112,789,240" Height="Auto" Width="Auto" Title="Ingresar Nuevo usuario" Click="Tile_Click">
@@ -44,7 +45,7 @@
             </Controls:Tile.Effect>
             <Image Source="Imagenes/Cancel.png" Height="148" Width="148" Stretch="Fill"/>
         </Controls:Tile>
-        <Controls:Tile x:Name="btnListarEsta" Margin="179,326,620,26" Height="Auto" Width="Auto" Title="Listar Estacionamientos" Click="btnListarEstacionamientos_Click">
+        <Controls:Tile x:Name="btnListarEsta" Margin="494,338,305,14" Height="Auto" Width="Auto" Title="Listar Estacionamientos" Click="btnListarEstacionamientos_Click">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="4" Opacity="0.95"/>
             </Controls:Tile.Effect>
@@ -55,6 +56,7 @@
                 <ImageBrush ImageSource="Imagenes/Previous.png"/>
             </Button.Background>
         </Button>
+        <Image x:Name="image1" HorizontalAlignment="Left" Height="217" Margin="105,338,0,0" VerticalAlignment="Top" Width="265" Source="Imagenes/LOGO2.png"/>
 
     </Grid>
 </Controls:MetroWindow>

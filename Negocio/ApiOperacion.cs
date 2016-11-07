@@ -183,6 +183,34 @@ namespace Negocio
             }   
         }
 
+        public Vehiculo Ingresar (string patente,string rut_propietario,string rut_usuario,string tipo_veh,string id_marca)
+        {
+            string endpoint = this.baseUrl + "/vehiculo/insert";
+            string method = "POST";
+            string json = JsonConvert.SerializeObject(new
+            {
+                patente = patente,
+                rutUsuario=rut_usuario,
+                rutPropietario = rut_propietario,
+                idTipoVehiculo = tipo_veh,
+                idMarca = id_marca
+
+            });
+            WebClient wc = new WebClient();
+            wc.Headers["Content-Type"] = "application/json";
+            try
+            {
+                string response = wc.UploadString(endpoint, method, json);
+                return JsonConvert.DeserializeObject<Vehiculo>(response);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }  
+        
+        
+
     }
     }
 
