@@ -35,10 +35,22 @@ namespace MiEstacionamiento
             string apellidoM = txtApellidoM.Text.Trim();
             string apellidoP = txtApellidoP.Text.Trim();
             string email = txtEmail.Text.Trim();
-            //string telefono = txtTelefono.Text.Trim();
+            string clave = txtClave.Text.Trim();
+            string rol = txtRol.Text.Trim();
+            string estado = txtEstado.Text.Trim();
+            string telefono = txtTelefono.Text.Trim();
+
             ApiOperacion ops = new ApiOperacion();
-            Usuario user = ops.Ingresar(rut, nombre, apellidoM, apellidoP, email);
-            await this.ShowMessageAsync("Exito", "ingreso exitosa");
+            Usuario user = ops.Ingresar(rut, nombre, apellidoM, apellidoP,telefono, email, clave,rol,estado);
+            await this.ShowMessageAsync("Exito", "Ingreso exitosa");
+        }
+
+        private void btnVolver1_Click(object sender, RoutedEventArgs e)
+        {
+            Administracion _ver = new Administracion();
+            //cerrar esta ventana 
+            this.Close();
+            _ver.ShowDialog();
         }
     }
 }

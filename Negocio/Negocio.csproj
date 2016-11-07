@@ -52,6 +52,7 @@
     <Compile Include="UsuarioRequest.cs" />
     <Compile Include="UsuarioResponse.cs" />
     <Compile Include="UsuarioTest.cs" />
+    <Compile Include="Vehiculo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

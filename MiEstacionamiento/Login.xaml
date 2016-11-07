@@ -5,18 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MiEstacionamiento"
         mc:Ignorable="d"
-                     
+        ResizeMode="NoResize"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        Title="Mi Estacionamiento" Height="361" Width="332" Background="AliceBlue" WindowStartupLocation="CenterScreen">
+        Title="Mi Estacionamiento" Height="400" Width="380" Background="AliceBlue" WindowStartupLocation="CenterScreen">
     <Grid>
-        <TextBox x:Name="txtemail" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese su correo" Height="32" Margin="42,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" BorderBrush="#FF020202"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="49" Margin="134,83,0,0" VerticalAlignment="Top" Width="49" RenderTransformOrigin="0.523,0.25" Stretch="Fill" Source="Imagenes/User-Login.png"/>
-        <Button x:Name="btnIngresar" Content="Ingresar" HorizontalAlignment="Left" Margin="42,290,0,0" VerticalAlignment="Top" Width="235" Background="White" BorderBrush="#FF080808" BorderThickness="1" Height="30" Click="btnIngresar_Click"/>
-        <Label x:Name="label" Content="Mi Estacionamiento" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="20"/>
-        <Image x:Name="image1" HorizontalAlignment="Left" Height="83" Margin="241,10,0,0" VerticalAlignment="Top" Width="83" Stretch="Fill" Source="Imagenes/GPS-Settings.png"/>
-        <PasswordBox x:Name="txtpws" HorizontalAlignment="Left" Margin="42,220,0,0" VerticalAlignment="Top" Height="1" Width="235"/>
+        <TextBox x:Name="txtemail" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese su correo" Height="35" Margin="42,201,47,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderBrush="#FF020202"/>
+        <PasswordBox x:Name="txtpws" Margin="42,249,47,0" VerticalAlignment="Top" Height="35"/>
+        <Image x:Name="image1" Margin="31,0,31,170" Source="Imagenes/LOGO2.png" RenderTransformOrigin="0.5,0.5"/>
+        <Button x:Name="btnIngresar" Content="Ingresar" Margin="42,331,47,0" VerticalAlignment="Top" Background="White" BorderBrush="#FF080808" BorderThickness="1" Height="30" Click="btnIngresar_Click"/>
 
     </Grid>
 </Controls:MetroWindow>

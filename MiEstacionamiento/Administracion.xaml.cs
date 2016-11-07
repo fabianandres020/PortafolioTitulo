@@ -37,7 +37,10 @@ namespace MiEstacionamiento
 
         private void btnLista_Click(object sender, RoutedEventArgs e)
         {
-
+            AddVeh _ver = new AddVeh();
+            //cerrar esta ventana 
+            this.Close();
+            _ver.ShowDialog();
         }
 
         private void btnBuscarVeh_Click(object sender, RoutedEventArgs e)

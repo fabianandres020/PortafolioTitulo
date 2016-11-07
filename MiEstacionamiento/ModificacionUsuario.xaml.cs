@@ -58,25 +58,7 @@ namespace MiEstacionamiento
 
         private async void txtBrut_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Return)
-            {
-                string rut = txtBrut.Text.Trim();
-                ApiOperacion ops = new ApiOperacion();
-                Usuario user = ops.Buscar(rut);
-                if (user.result[0] == null)
-                {
-                    await this.ShowMessageAsync("Oh hubo un problema :(", "Rut no Encontrado");
-                }
-                else
-                {
-                    txtNombre.Text = user.result[0].nombre;
-                    txtApellidoM.Text = user.result[0].apellidoMaterno;
-                    txtApellidoP.Text = user.result[0].apellidoPaterno;
-                    txtEmail.Text = user.result[0].correoUsuario;
-                    txtTelefono.Text = user.result[0].fonoUsuario;
-                    //txtDireccion.Text = "falta";
-                } 
-            }
+            
         }
 
         private void btnEditar_Click(object sender, RoutedEventArgs e)
@@ -110,6 +92,26 @@ namespace MiEstacionamiento
             txtEmail.Text = string.Empty;
             txtTelefono.Text = string.Empty;
             //txtDireccion.Text = string.Empty;
+        }
+
+        private async void btnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            string rut = txtBrut.Text.Trim();
+            ApiOperacion ops = new ApiOperacion();
+            Usuario user = ops.Buscar(rut);
+            if (user.result[0] == null)
+            {
+                await this.ShowMessageAsync("Oh hubo un problema :(", "Rut no Encontrado");
+            }
+            else
+            {
+                txtNombre.Text = user.result[0].nombre;
+                txtApellidoM.Text = user.result[0].apellidoMaterno;
+                txtApellidoP.Text = user.result[0].apellidoPaterno;
+                txtEmail.Text = user.result[0].correoUsuario;
+                txtTelefono.Text = user.result[0].fonoUsuario;
+                //txtDireccion.Text = "falta";
+            }
         }
     }
 }

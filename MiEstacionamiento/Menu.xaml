@@ -6,44 +6,43 @@
         xmlns:local="clr-namespace:MiEstacionamiento"
         mc:Ignorable="d"
         WindowStyle="None"
+       ResizeMode="NoResize"          
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"              
         Title="Menu" Height="555" Width="1024" Background="AliceBlue" WindowStartupLocation="CenterScreen">
-        
+
     <Grid>
-        <Controls:Tile x:Name="btnModifica" Margin="10,112,737,223" Height="Auto" Width="Auto" Title="Modificacion de usuario" Click="Tile_Click">
+        <Controls:Tile x:Name="btnModifica" Margin="407,90,339,245" Height="Auto" Width="Auto" Title="Modificacion de usuario" Click="Tile_Click">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="4" Opacity="0.95"/>
             </Controls:Tile.Effect>
             <Image Source="Imagenes/User-Modify.png" Height="148" Width="148"></Image>
         </Controls:Tile>
-        <Label x:Name="label" Content="Mi Estacionamiento" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="48"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="69" Margin="544,20,0,0" VerticalAlignment="Top" Width="72" Stretch="Fill" Source="Imagenes/GPS-Settings.png"/>
-        <Controls:Tile x:Name="btnLista" Margin="321,112,441,223" Height="Auto" Width="Auto" Title="Listas de Usuarios" Click="btnLista_Click">
+        <Controls:Tile x:Name="btnLista" Margin="752,90,10,245" Height="Auto" Width="Auto" Title="Listas de Usuarios" Click="btnLista_Click">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="4" Opacity="0.95"/>
             </Controls:Tile.Effect>
             <Image Source="Imagenes/Table.png" Height="148" Width="148"/>
         </Controls:Tile>
-        <Controls:Tile Margin="608,112,48,223" Height="Auto" Width="Auto" Title="Administracion" Click="Tile_Click_1">
+        <Controls:Tile Margin="24,354,658,14" Height="Auto" Width="Auto" Title="Administracion" Click="Tile_Click_1">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="4" Opacity="0.95"/>
             </Controls:Tile.Effect>
             <Image Source="Imagenes/Customize-02.png" Height="148" Width="148" Stretch="Fill"/>
         </Controls:Tile>
-        <Controls:Tile x:Name="tltSalir" Margin="782,370,48,26" Height="Auto" Width="Auto" Title="Salir" Click="tltSalir_Click">
+        <Controls:Tile x:Name="tltSalir" Margin="820,382,10,14" Height="Auto" Width="Auto" Title="Salir" Click="tltSalir_Click">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="4" Opacity="0.95"/>
             </Controls:Tile.Effect>
             <Image Source="Imagenes/Logout.png" Height="91" Width="91"/>
         </Controls:Tile>
-        <Controls:Tile Margin="372,342,270,26" Height="Auto" Width="Auto" Title="Ayuda">
+        <Controls:Tile Margin="407,354,269,14" Height="Auto" Width="Auto" Title="Ayuda">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="4" Opacity="0.95"/>
             </Controls:Tile.Effect>
             <Image Source="Imagenes/Help.png" Height="148" Width="148"/>
         </Controls:Tile>
-        <Image x:Name="image1" HorizontalAlignment="Left" Height="120" Margin="10,394,0,0" VerticalAlignment="Top" Width="357" Stretch="Fill" Source="Imagenes/logo duoc.png"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="302" VerticalAlignment="Top" Width="338" Source="Imagenes/LOGO2.png"/>
     </Grid>
 </Controls:MetroWindow>

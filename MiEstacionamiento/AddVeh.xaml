@@ -1,0 +1,37 @@
+﻿<Controls:MetroWindow x:Class="MiEstacionamiento.AddVeh"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MiEstacionamiento"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"              
+        Title="Agregar Usuario" Height="555" Width="1024" Background="AliceBlue" WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="0,25,0,-25">
+        <Label x:Name="label" Content="Agregar Vehiculo" HorizontalAlignment="Left" Margin="110,31,0,0" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="48"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Source="Imagenes/User-Add-black.png"/>
+        <Label x:Name="label1" Content="Patente" HorizontalAlignment="Left" Margin="28,154,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtPatente" HorizontalAlignment="Left" Height="23" Margin="135,154,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1_Copy" Content="Rut de Usuario" HorizontalAlignment="Left" Margin="28,196,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtRutU" HorizontalAlignment="Left" Height="23" Margin="135,196,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1_Copy1" Content="Rut de Propietario" HorizontalAlignment="Left" Margin="28,236,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtRutP" HorizontalAlignment="Left" Height="24" Margin="135,236,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1_Copy2" Content="Tipo Vehiculo" HorizontalAlignment="Left" Margin="28,280,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtTipoV" HorizontalAlignment="Left" Height="23" Margin="135,280,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1_Copy3" Content="Marca" HorizontalAlignment="Left" Margin="28,324,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtMarca" HorizontalAlignment="Left" Height="22" Margin="135,324,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnGuardarVeh" Content="Guardar" HorizontalAlignment="Left" Margin="284,444,0,0" VerticalAlignment="Top" Width="212" Click="btnGuardarVeh_Click"/>
+        <Button x:Name="btnVolver1" Content="" HorizontalAlignment="Left" Margin="19,458,0,0" VerticalAlignment="Top" Width="52" Height="48" BorderBrush="{x:Null}" Click="btnVolver1_Click" Foreground="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="Imagenes/Previous.png"/>
+            </Button.Background>
+        </Button>
+        <Image x:Name="image1" HorizontalAlignment="Left" Height="247" Margin="759,-25,0,0" VerticalAlignment="Top" Width="247" Source="Imagenes/baner.png"/>
+
+
+    </Grid>
+</Controls:MetroWindow>

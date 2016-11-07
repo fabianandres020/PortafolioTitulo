@@ -13,8 +13,8 @@
     <Grid>
         <Label x:Name="label" Content="Modificacion De Usuario" HorizontalAlignment="Left" Margin="151,55,0,0" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="48"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="136" Margin="10,10,0,0" VerticalAlignment="Top" Width="136" Source="Imagenes/User-Modify-negro.png"/>
-        <Label x:Name="label_Copy" Content="Buscar Usuario" HorizontalAlignment="Left" Margin="30,176,0,0" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="22"/>
-        <TextBox x:Name="txtBrut" HorizontalAlignment="Left" Height="33" Margin="238,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="292" RenderTransformOrigin="0.942,-0.154" Controls:TextBoxHelper.Watermark="Ingrese rut " FontSize="18" FontFamily="Century Gothic" TextChanged="txtBrut_TextChanged" PreviewTextInput="txtBrut_PreviewTextInput" KeyDown="txtBrut_KeyDown"/>
+        <Label x:Name="label_Copy" Content="Buscar Usuario" HorizontalAlignment="Left" Margin="4,184,0,0" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="22"/>
+        <TextBox x:Name="txtBrut" HorizontalAlignment="Left" Height="33" Margin="227,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="292" RenderTransformOrigin="0.942,-0.154" Controls:TextBoxHelper.Watermark="Ingrese rut " FontSize="18" FontFamily="Century Gothic" TextChanged="txtBrut_TextChanged" PreviewTextInput="txtBrut_PreviewTextInput" KeyDown="txtBrut_KeyDown"/>
         <Label x:Name="label1" Content="Nombre" HorizontalAlignment="Left" Margin="4,249,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="132"/>
         <Label x:Name="label2" Content="Apellido Paterno" HorizontalAlignment="Left" Margin="4,291,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="184"/>
         <Label x:Name="label3" Content="Apellido Materno" HorizontalAlignment="Left" Margin="4,332,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="184"/>
@@ -32,7 +32,8 @@
         </Button>
         <Label x:Name="label4_Copy" Content="Email" HorizontalAlignment="Left" Margin="552,249,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="132"/>
         <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="29" Margin="652,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="16" IsReadOnly="True"/>
-        <Image x:Name="image1" HorizontalAlignment="Left" Height="70" Margin="792,10,0,0" VerticalAlignment="Top" Width="224" Source="Imagenes/logo duoc.png"/>
+        <Image x:Name="image1" HorizontalAlignment="Left" Height="174" Margin="810,10,0,0" VerticalAlignment="Top" Width="196" Source="Imagenes/LOGO2.png"/>
+        <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="552,195,0,0" VerticalAlignment="Top" Width="157" Click="btnBuscar_Click"/>
 
     </Grid>
 </Controls:MetroWindow>

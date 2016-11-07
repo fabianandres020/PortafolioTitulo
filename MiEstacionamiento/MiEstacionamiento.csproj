@@ -46,6 +46,9 @@
       <HintPath>..\packages\MahApps.Metro.1.4.0-ALPHA026\lib\net45\MahApps.Metro.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MahApps.Metro.Fakes">
+      <HintPath>FakesAssemblies\MahApps.Metro.Fakes.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -81,6 +84,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AddVeh.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Administracion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -95,6 +102,9 @@
     </Page>
     <Compile Include="AddUser.xaml.cs">
       <DependentUpon>AddUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddVeh.xaml.cs">
+      <DependentUpon>AddVeh.xaml</DependentUpon>
     </Compile>
     <Compile Include="Administracion.xaml.cs">
       <DependentUpon>Administracion.xaml</DependentUpon>
@@ -151,6 +161,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Fakes Include="Fakes\MahApps.Metro.fakes" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -209,6 +220,11 @@
     <Resource Include="Resources\Entypo-license.txt" />
     <Resource Include="Resources\WindowsIcons-license.txt" />
     <Resource Include="Imagenes\User-Add-black.png" />
+    <Resource Include="Imagenes\LOGO2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagenes\Sin título-1.png" />
+    <Resource Include="Imagenes\baner.png" />
     <Content Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />

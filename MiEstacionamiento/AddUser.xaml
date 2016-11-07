@@ -9,24 +9,36 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"              
-        Title="Menu" Height="555" Width="1024" Background="AliceBlue" WindowStartupLocation="CenterScreen">
+        Title="Agregar Usuario" Height="555" Width="1024" Background="AliceBlue" WindowStartupLocation="CenterScreen">
 
-    <Grid>
+    <Grid Margin="0,25,0,-25">
         <Label x:Name="label" Content="Agregar Usuario" HorizontalAlignment="Left" Margin="110,31,0,0" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="48"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Source="Imagenes/User-Add-black.png"/>
-        <Label x:Name="label1" Content="Label" HorizontalAlignment="Left" Margin="28,154,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="23" Margin="110,158,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label1_Copy" Content="Label" HorizontalAlignment="Left" Margin="28,196,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="110,200,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label1_Copy1" Content="Label" HorizontalAlignment="Left" Margin="28,236,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtApellidoP" HorizontalAlignment="Left" Height="24" Margin="110,240,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label1_Copy2" Content="Label" HorizontalAlignment="Left" Margin="28,280,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtApellidoM" HorizontalAlignment="Left" Height="23" Margin="110,284,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label1_Copy3" Content="Label" HorizontalAlignment="Left" Margin="28,324,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="22" Margin="110,328,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label1_Copy4" Content="Label" HorizontalAlignment="Left" Margin="28,368,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="23" Margin="110,371,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="212,478,0,0" VerticalAlignment="Top" Width="75" Click="btnGuardar_Click"/>
+        <Label x:Name="label1" Content="Rut" HorizontalAlignment="Left" Margin="28,154,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="23" Margin="135,154,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1_Copy" Content="Nombre" HorizontalAlignment="Left" Margin="28,196,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="135,196,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1_Copy1" Content="Apellido Paterno" HorizontalAlignment="Left" Margin="28,236,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtApellidoP" HorizontalAlignment="Left" Height="24" Margin="135,236,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1_Copy2" Content="Apellido Materno" HorizontalAlignment="Left" Margin="28,280,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtApellidoM" HorizontalAlignment="Left" Height="23" Margin="135,280,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1_Copy3" Content="Telefono" HorizontalAlignment="Left" Margin="28,324,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtTelefono" HorizontalAlignment="Left" Height="22" Margin="135,324,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1_Copy4" Content="Correo&#xA;" HorizontalAlignment="Left" Margin="314,151,0,0" VerticalAlignment="Top" Height="29"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="23" Margin="395,154,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="284,444,0,0" VerticalAlignment="Top" Width="212" Click="btnGuardar_Click"/>
+        <Label x:Name="label1_Copy5" Content="Clave&#xA;" HorizontalAlignment="Left" Margin="314,193,0,0" VerticalAlignment="Top" Height="29"/>
+        <TextBox x:Name="txtClave" HorizontalAlignment="Left" Height="23" Margin="395,196,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1_Copy6" Content="Rol&#xA;" HorizontalAlignment="Left" Margin="315,238,0,0" VerticalAlignment="Top" Height="29"/>
+        <TextBox x:Name="txtRol" HorizontalAlignment="Left" Height="23" Margin="395,238,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1_Copy7" Content="Estado&#xA;" HorizontalAlignment="Left" Margin="315,277,0,0" VerticalAlignment="Top" Height="29"/>
+        <TextBox x:Name="txtEstado" HorizontalAlignment="Left" Height="23" Margin="395,280,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnVolver1" Content="" HorizontalAlignment="Left" Margin="28,464,0,0" VerticalAlignment="Top" Width="52" Height="48" BorderBrush="{x:Null}" Click="btnVolver1_Click" Foreground="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="Imagenes/Previous.png"/>
+            </Button.Background>
+        </Button>
+        <Image x:Name="image1" HorizontalAlignment="Left" Height="247" Margin="759,-25,0,0" VerticalAlignment="Top" Width="247" Source="Imagenes/baner.png"/>
 
 
     </Grid>
