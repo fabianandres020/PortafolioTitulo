@@ -63,18 +63,51 @@ namespace MiEstacionamiento
 
         private void btnEditar_Click(object sender, RoutedEventArgs e)
         {
-          
-            txtNombre.IsReadOnly = false;
-            txtApellidoM.IsReadOnly = false;
-            txtApellidoP.IsReadOnly = false;
-            txtEmail.IsReadOnly = false;
-            txtTelefono.IsReadOnly = false;
+            if (txtBrut.Text.Length==0)
+            {
+                errormessage.Text = "Ingresar rut ";
+                txtBrut.Focus();
+            }
+            else
+            {
+                txtBrut.IsEnabled = false;
+                txtNombre.IsEnabled = true;
+                txtApellidoM.IsEnabled = true;
+                txtApellidoP.IsEnabled = true;
+                txtEmail.IsEnabled = true;
+                txtTelefono.IsEnabled = true;
+
+                txtNombre.IsReadOnly = false;
+                txtApellidoM.IsReadOnly = false;
+                txtApellidoP.IsReadOnly = false;
+                txtEmail.IsReadOnly = false;
+                txtTelefono.IsReadOnly = false;
+            }
+            
             //txtDireccion.IsReadOnly = false;
 
         }
 
         private async void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
+            if (txtBrut.Text.Length==0)
+            {
+                errormessage.Text = "Ingresar rut";
+                txtBrut.Focus();
+            }
+            else if (txtBrut.Text.Length < 8 || txtBrut.Text.Length > 11)
+            {
+                errormessage.Text = "Ingresar rut valido";
+                txtBrut.Focus();
+            }
+            else if (txtNombre.Text.Length== 0 || txtApellidoP.Text.Length == 0 || txtApellidoM.Text.Length== 0 || txtEmail.Text.Length== 0)
+            {
+                errormessage.Text = "Ingresar datos";
+                txtBrut.Focus();
+            }
+            else
+            {
+            errormessage.Text = string.Empty;         
             string rut = txtBrut.Text.Trim();
             string nombre = txtNombre.Text.Trim();
             string apellidoM = txtApellidoM.Text.Trim();
@@ -85,32 +118,48 @@ namespace MiEstacionamiento
             ApiOperacion ops = new ApiOperacion();
             Usuario user = ops.Modificar(rut, nombre, apellidoM, apellidoP, email, telefono);
             await this.ShowMessageAsync("Exito", "Modificacion exitosa");
+                txtBrut.IsEnabled = true;
             txtBrut.Text = string.Empty;
             txtNombre.Text = string.Empty;
             txtApellidoM.Text = string.Empty;
             txtApellidoP.Text = string.Empty;
             txtEmail.Text = string.Empty;
             txtTelefono.Text = string.Empty;
-            //txtDireccion.Text = string.Empty;
+           //txtDireccion.Text = string.Empty;
+           }
         }
 
         private async void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
-            string rut = txtBrut.Text.Trim();
-            ApiOperacion ops = new ApiOperacion();
-            Usuario user = ops.Buscar(rut);
-            if (user.result[0] == null)
+            if (txtBrut.Text.Length == 0)
             {
-                await this.ShowMessageAsync("Oh hubo un problema :(", "Rut no Encontrado");
+                errormessage.Text = "Ingresar rut";
+                txtBrut.Focus();
+            }
+            else if (txtBrut.Text.Length <8 || txtBrut.Text.Length > 11)
+            {
+                errormessage.Text = "Ingresar rut valido";
+                txtBrut.Focus();
             }
             else
             {
-                txtNombre.Text = user.result[0].nombre;
-                txtApellidoM.Text = user.result[0].apellidoMaterno;
-                txtApellidoP.Text = user.result[0].apellidoPaterno;
-                txtEmail.Text = user.result[0].correoUsuario;
-                txtTelefono.Text = user.result[0].fonoUsuario;
-                //txtDireccion.Text = "falta";
+                errormessage.Text = string.Empty;
+                string rut = txtBrut.Text.Trim();
+                ApiOperacion ops = new ApiOperacion();
+                Usuario user = ops.Buscar(rut);
+                if (user.result[0] == null)
+                {
+                    await this.ShowMessageAsync("Oh hubo un problema :(", "Rut no Encontrado");
+                }
+                else
+                {
+                    txtNombre.Text = user.result[0].nombre;
+                    txtApellidoM.Text = user.result[0].apellidoMaterno;
+                    txtApellidoP.Text = user.result[0].apellidoPaterno;
+                    txtEmail.Text = user.result[0].correoUsuario;
+                    txtTelefono.Text = user.result[0].fonoUsuario;
+                    //txtDireccion.Text = "falta";
+                }
             }
         }
     }

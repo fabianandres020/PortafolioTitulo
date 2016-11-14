@@ -24,6 +24,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web;
 using Negocio;
+using System.Text.RegularExpressions;
 
 namespace MiEstacionamiento
 {
@@ -46,6 +47,20 @@ namespace MiEstacionamiento
         {
             try
             {
+                if (txtemail.Text.Length == 0 || txtpws.Password.Length == 0)
+                {
+                    errormessage.Text = "Ingresar datos";
+                    txtemail.Focus();
+                }
+                else if (!Regex.IsMatch(txtemail.Text, @"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$"))
+                {
+                    errormessage.Text = "Ingresar un Correo Valido.";
+                    txtemail.Select(0, txtemail.Text.Length);
+                    txtemail.Focus();
+                }
+                else
+                { 
+
                 string email = txtemail.Text.Trim();
                 string pass = txtpws.Password.Trim();
                 ApiOperacion ops = new ApiOperacion();
@@ -65,6 +80,7 @@ namespace MiEstacionamiento
                     //cerrar esta ventana 
                     this.Close();
                     _ver.ShowDialog();
+                }
                 }
 
             }
@@ -99,6 +115,10 @@ namespace MiEstacionamiento
 
 
         }
-       
+
+        private void txtemail_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

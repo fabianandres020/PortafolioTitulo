@@ -11,9 +11,10 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         Title="Mi Estacionamiento" Height="400" Width="380" Background="AliceBlue" WindowStartupLocation="CenterScreen">
     <Grid>
-        <TextBox x:Name="txtemail" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese su correo" Height="35" Margin="42,201,47,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderBrush="#FF020202"/>
-        <PasswordBox x:Name="txtpws" Margin="42,249,47,0" VerticalAlignment="Top" Height="35"/>
-        <Image x:Name="image1" Margin="31,0,31,170" Source="Imagenes/LOGO2.png" RenderTransformOrigin="0.5,0.5"/>
+        <TextBox x:Name="txtemail" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="ejemplo@gmail.com" Height="35" Margin="42,201,47,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderBrush="#FF020202" TextChanged="txtemail_TextChanged"/>
+        <TextBlock Height="20" HorizontalAlignment="Left" x:Name ="errormessage" VerticalAlignment="Top" Width="247" Margin="42,291,0,0" OpacityMask="Crimson" Foreground="#FFE5572C" FontFamily="Century Gothic" FontSize="13.333" FontWeight="Bold" />
+        <PasswordBox x:Name="txtpws" Margin="42,256,47,0" VerticalAlignment="Top" Height="35" Controls:TextBoxHelper.UseFloatingWatermark="True" Controls:TextBoxHelper.Watermark="Contraseña"/>
+        <Image x:Name="image1" Margin="31,0,31,170" Source="Imagenes/Logo.png" RenderTransformOrigin="0.5,0.5"/>
         <Button x:Name="btnIngresar" Content="Ingresar" Margin="42,331,47,0" VerticalAlignment="Top" Background="White" BorderBrush="#FF080808" BorderThickness="1" Height="30" Click="btnIngresar_Click"/>
 
     </Grid>

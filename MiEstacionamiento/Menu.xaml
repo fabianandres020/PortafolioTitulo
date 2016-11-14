@@ -13,13 +13,13 @@
         Title="Menu" Height="555" Width="1024" Background="AliceBlue" WindowStartupLocation="CenterScreen">
 
     <Grid>
-        <Controls:Tile x:Name="btnModifica" Margin="407,90,339,245" Height="Auto" Width="Auto" Title="Modificacion de usuario" Click="Tile_Click">
+        <Controls:Tile x:Name="btnModifica" Margin="430,64,316,271" Height="Auto" Width="Auto" Title="Modificacion de usuario" Click="Tile_Click">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="4" Opacity="0.95"/>
             </Controls:Tile.Effect>
             <Image Source="Imagenes/User-Modify.png" Height="148" Width="148"></Image>
         </Controls:Tile>
-        <Controls:Tile x:Name="btnLista" Margin="752,90,10,245" Height="Auto" Width="Auto" Title="Listas de Usuarios" Click="btnLista_Click">
+        <Controls:Tile x:Name="btnLista" Margin="752,64,10,271" Height="Auto" Width="Auto" Title="Listas de Usuarios" Click="btnLista_Click">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="4" Opacity="0.95"/>
             </Controls:Tile.Effect>
@@ -43,6 +43,6 @@
             </Controls:Tile.Effect>
             <Image Source="Imagenes/Help.png" Height="148" Width="148"/>
         </Controls:Tile>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="302" VerticalAlignment="Top" Width="338" Source="Imagenes/LOGO2.png"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="274" VerticalAlignment="Top" Width="456" Source="Imagenes/Logo.png" Margin="-26,10,0,0"/>
     </Grid>
 </Controls:MetroWindow>
