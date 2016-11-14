@@ -45,38 +45,52 @@ namespace MiEstacionamiento
 
         private async void btnIngresar_Click(object sender, RoutedEventArgs e)
         {
+            var ProgressAlert = await this.ShowProgressAsync("Conectando con el servidor", "Sincronizando datos....");
+            ProgressAlert.SetIndeterminate(); //Infinite
+
             try
             {
                 if (txtemail.Text.Length == 0 || txtpws.Password.Length == 0)
                 {
+                    await ProgressAlert.CloseAsync();
                     errormessage.Text = "Ingresar datos";
                     txtemail.Focus();
                 }
                 else if (!Regex.IsMatch(txtemail.Text, @"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$"))
                 {
+                    await ProgressAlert.CloseAsync();
                     errormessage.Text = "Ingresar un Correo Valido.";
                     txtemail.Select(0, txtemail.Text.Length);
                     txtemail.Focus();
                 }
                 else
-                { 
-
+                {
+             
                 string email = txtemail.Text.Trim();
                 string pass = txtpws.Password.Trim();
                 ApiOperacion ops = new ApiOperacion();
                 UsuarioTest user = ops.autentificacion(email, pass);
                 if (user.result == null)
                 {
-                    await this.ShowMessageAsync("Oh hubo un problema :(", "Tus datos son Incorrectos");
+
+                        await Task.Delay(3000);
+                        await ProgressAlert.CloseAsync();
+                        await this.ShowMessageAsync("Oh hubo un problema :(", "Tus datos son Incorrectos");
+                        txtemail.Focus();
 
                 }
                 else
                 {
-                    Globals.LoggedInUser = user;
-                    //mostrar ventana estilo w 8
-                    await this.ShowMessageAsync("Exito!", "Tus datos son correctos");
-                    // mostrar la ventana menu
-                    Menu _ver = new Menu();
+                    
+                        Globals.LoggedInUser = user;
+                        //mostrar ventana estilo w 8
+
+                        //await this.ShowMessageAsync("Exito!", "Tus datos son correctos");
+                        // mostrar la ventana menu
+                        await Task.Delay(3000);
+                        await ProgressAlert.CloseAsync();
+                      
+                        Menu _ver = new Menu();
                     //cerrar esta ventana 
                     this.Close();
                     _ver.ShowDialog();
@@ -87,6 +101,8 @@ namespace MiEstacionamiento
             catch (Exception ex)
             {
                 string log = ex.Message;
+                await Task.Delay(3000);
+                await ProgressAlert.CloseAsync();
                 await this.ShowMessageAsync("Problema de conexión :(", "Contactar a supervisor");
             }
            
