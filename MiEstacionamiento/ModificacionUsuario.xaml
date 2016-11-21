@@ -16,12 +16,12 @@
         <TextBox x:Name="txtBrut" HorizontalAlignment="Left" Height="33" Margin="237,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="252" RenderTransformOrigin="0.942,-0.154" Controls:TextBoxHelper.Watermark="Rut sin puntos y gion" FontSize="18" FontFamily="Century Gothic" TextChanged="txtBrut_TextChanged" PreviewTextInput="txtBrut_PreviewTextInput" KeyDown="txtBrut_KeyDown"/>
         <Label x:Name="label1" Content="Nombre" HorizontalAlignment="Left" Margin="4,226,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="132"/>
         <Label x:Name="label2" Content="Apellido Paterno" HorizontalAlignment="Left" Margin="4,268,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="184"/>
-        <Label x:Name="label3" Content="Apellido Materno" HorizontalAlignment="Left" Margin="4,332,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="184"/>
-        <Label x:Name="label6" Content="Telefono" HorizontalAlignment="Left" Margin="4,377,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="140"/>
+        <Label x:Name="label3" Content="Apellido Materno" HorizontalAlignment="Left" Margin="4,309,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="184"/>
+        <Label x:Name="label6" Content="Telefono" HorizontalAlignment="Left" Margin="4,354,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="140"/>
         <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="28" Margin="237,226,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="252" FontFamily="Century Gothic" FontSize="16" IsReadOnly="True" IsEnabled="False"/>
         <TextBox x:Name="txtApellidoP" HorizontalAlignment="Left" Height="28" Margin="238,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251" FontFamily="Century Gothic" FontSize="16" IsReadOnly="True" IsEnabled="False"/>
-        <TextBox x:Name="txtApellidoM" HorizontalAlignment="Left" Height="29" Margin="237,332,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251" FontFamily="Century Gothic" FontSize="16" IsReadOnly="True" IsEnabled="False"/>
-        <TextBox x:Name="txtTelefono" HorizontalAlignment="Left" Height="28" Margin="237,377,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="252" FontFamily="Century Gothic" FontSize="16" IsReadOnly="True" IsEnabled="False"/>
+        <TextBox x:Name="txtApellidoM" HorizontalAlignment="Left" Height="29" Margin="237,315,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251" FontFamily="Century Gothic" FontSize="16" IsReadOnly="True" IsEnabled="False"/>
+        <TextBox x:Name="txtTelefono" HorizontalAlignment="Left" Height="28" Margin="238,361,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="252" FontFamily="Century Gothic" FontSize="16" IsReadOnly="True" IsEnabled="False"/>
         <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="192,458,0,0" VerticalAlignment="Top" Width="236" Height="36" FontFamily="Century Gothic" FontSize="16" Click="btnEditar_Click"/>
         <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="582,458,0,0" VerticalAlignment="Top" Width="236" Height="36" FontFamily="Century Gothic" FontSize="16" Click="btnGuardar_Click"/>
         <Button x:Name="btnVolver1" Content="" HorizontalAlignment="Left" Margin="10,458,0,0" VerticalAlignment="Top" Width="64" Height="60" BorderBrush="{x:Null}" Click="btnVolver1_Click" Foreground="{x:Null}">
@@ -34,6 +34,15 @@
         <Image x:Name="image1" HorizontalAlignment="Left" Height="146" Margin="739,10,0,0" VerticalAlignment="Top" Width="277" Source="Imagenes/Logo.png"/>
         <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="522,173,0,0" VerticalAlignment="Top" Width="104" Click="btnBuscar_Click" Height="33"/>
         <TextBlock Height="20" HorizontalAlignment="Left" x:Name ="errormessage" VerticalAlignment="Top" Width="247" Margin="237,206,0,0" Foreground="#FFE5572C" FontFamily="Century Gothic" FontSize="13.333" FontWeight="Bold" OpacityMask="#FFFD0000" />
+        <Label x:Name="label4_Copy1" Content="Clave" HorizontalAlignment="Left" Margin="552,267,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="132"/>
+        <TextBox x:Name="txtPass" HorizontalAlignment="Left" Height="29" Margin="633,267,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="16" IsReadOnly="True" IsEnabled="False"/>
+        <ComboBox x:Name="cbEstado" HorizontalAlignment="Left" Margin="633,315,0,0" VerticalAlignment="Top" Width="296">
+            <ComboBoxItem Content="Activo"/>
+            <ComboBoxItem Content="No Activo"/>
+        </ComboBox>
+        <Label x:Name="label4_Copy2" Content="Estado" HorizontalAlignment="Left" Margin="552,309,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="132"/>
+        <ComboBox x:Name="cbRol" HorizontalAlignment="Left" Margin="633,367,0,0" VerticalAlignment="Top" Width="296"/>
+        <Label x:Name="label4_Copy3" Content="Rol" HorizontalAlignment="Left" Margin="552,361,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="132"/>
 
     </Grid>
 </Controls:MetroWindow>

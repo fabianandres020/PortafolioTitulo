@@ -15,7 +15,7 @@ namespace Negocio
 
         public ApiOperacion()
         {
-            this.baseUrl = "http://186.64.123.8:8080/mi-estacionamiento-web";
+            this.baseUrl = "http://186.64.123.8:80/mi-estacionamiento-web";
         }
         public Usuario Ingresar(string rut, string nombre, string apellidoM, string apellidoP,string telefono, string email, string clave, string rol, string estado)
         {
@@ -46,6 +46,23 @@ namespace Negocio
                 return null;
             }
 
+        }
+        public Rol ListarRol()
+        {
+            string endpoint = this.baseUrl + "/rol/selectAll";
+            string method = "POST";
+            WebClient wc = new WebClient();
+            wc.Headers["Content-Type"] = "application/json";
+            try
+            {
+                string response = wc.UploadString(endpoint, method);
+                // IList<Usuario> cliente = JsonConvert.DeserializeObject<IList<Usuario>>(response);
+                return JsonConvert.DeserializeObject<Rol>(response);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
         public Usuario listar ()
         {
@@ -88,17 +105,18 @@ namespace Negocio
                 return null;
             }
         }
-        public Usuario Modificar(string rut,string nombre,string apellidoM,string apellidoP,string email,string telefono)
+        public Usuario Modificar(string rut,string nombre,string apellidoM,string apellidoP,string email,string telefono,string pass)
         {
             string endpoint = this.baseUrl + "/usuario/update";
             string method = "POST";
             string json = JsonConvert.SerializeObject(new
             {
                 rutUsuario = rut,
-                username = nombre,
+                nombre = nombre,
                 apellidoMaterno = apellidoM,
                 apellidoPaterno = apellidoP,
                 correoUsuario = email,
+                claveUsuario = pass,
                 fonoUsuario = telefono,
                
             });
@@ -182,7 +200,6 @@ namespace Negocio
                 return null;
             }   
         }
-
         public Vehiculo Ingresar (string patente,string rut_propietario,string rut_usuario,string tipo_veh,string id_marca)
         {
             string endpoint = this.baseUrl + "/vehiculo/insert";

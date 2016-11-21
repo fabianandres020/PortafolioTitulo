@@ -26,6 +26,13 @@ namespace MiEstacionamiento
         public ModificacionUsuario()
         {
             InitializeComponent();
+            //cbEstado.SelectedIndex = 1;
+            ApiOperacion ops = new ApiOperacion();
+            Rol rol = ops.ListarRol();
+            cbRol.SelectedValuePath = "idRol";
+            cbRol.DisplayMemberPath = "nombre";
+            cbRol.ItemsSource = rol.result;
+
 
         }
 
@@ -114,11 +121,15 @@ namespace MiEstacionamiento
             string apellidoP = txtApellidoP.Text.Trim();
             string email = txtEmail.Text.Trim();
             string telefono = txtTelefono.Text.Trim();
+            string pass = txtPass.Text.Trim();
+            
            // string direccion = txtDireccion.Text.Trim();
             ApiOperacion ops = new ApiOperacion();
-            Usuario user = ops.Modificar(rut, nombre, apellidoM, apellidoP, email, telefono);
+            Usuario user = ops.Modificar(rut, nombre, apellidoM, apellidoP, email, telefono,pass);
+
             await this.ShowMessageAsync("Exito", "Modificacion exitosa");
-                txtBrut.IsEnabled = true;
+
+            txtBrut.IsEnabled = true;
             txtBrut.Text = string.Empty;
             txtNombre.Text = string.Empty;
             txtApellidoM.Text = string.Empty;
@@ -143,22 +154,52 @@ namespace MiEstacionamiento
             }
             else
             {
+                var ProgressAlert = await this.ShowProgressAsync("Conectando con el servidor", "Buscando Usuario....");
+                ProgressAlert.SetIndeterminate(); //Infinite
                 errormessage.Text = string.Empty;
                 string rut = txtBrut.Text.Trim();
                 ApiOperacion ops = new ApiOperacion();
                 Usuario user = ops.Buscar(rut);
-                if (user.result[0] == null)
+                try
                 {
-                    await this.ShowMessageAsync("Oh hubo un problema :(", "Rut no Encontrado");
+                    if (user.result[0] == null)
+                    {
+                        await Task.Delay(2000);
+                        await ProgressAlert.CloseAsync();
+                        await this.ShowMessageAsync("Oh hubo un problema :(", "Rut no Encontrado");
+                        txtBrut.Focus();
+                    }
+                    else
+                    {
+                        await Task.Delay(3000);
+                        await ProgressAlert.CloseAsync();
+                        txtNombre.Text = user.result[0].nombre;
+                        txtApellidoM.Text = user.result[0].apellidoMaterno;
+                        txtApellidoP.Text = user.result[0].apellidoPaterno;
+                        txtEmail.Text = user.result[0].correoUsuario;
+                        txtTelefono.Text = user.result[0].fonoUsuario;
+                        txtPass.Text = user.result[0].claveUsuario;
+                        int estado = user.result[0].idEstado;
+                        if (estado==1)
+                        {
+                            cbEstado.SelectedIndex = 0;
+                        }
+                        else
+                        {
+                            cbEstado.SelectedIndex = 1;
+                        }
+                        cbRol.SelectedIndex = user.result[0].idRol+1;
+                            
+
+
+                    }
                 }
-                else
+                catch (Exception)
                 {
-                    txtNombre.Text = user.result[0].nombre;
-                    txtApellidoM.Text = user.result[0].apellidoMaterno;
-                    txtApellidoP.Text = user.result[0].apellidoPaterno;
-                    txtEmail.Text = user.result[0].correoUsuario;
-                    txtTelefono.Text = user.result[0].fonoUsuario;
-                    //txtDireccion.Text = "falta";
+
+                    await Task.Delay(3000);
+                    await ProgressAlert.CloseAsync();
+                    await this.ShowMessageAsync("Problema de conexión :(", "Contacte al administrador");
                 }
             }
         }

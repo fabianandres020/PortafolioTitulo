@@ -75,7 +75,7 @@ namespace MiEstacionamiento
 
                         await Task.Delay(3000);
                         await ProgressAlert.CloseAsync();
-                        await this.ShowMessageAsync("Oh hubo un problema :(", "Tus datos son Incorrectos");
+                        await this.ShowMessageAsync("Oh hubo un problema", "Tus datos son Incorrectos");
                         txtemail.Focus();
 
                 }
@@ -105,31 +105,6 @@ namespace MiEstacionamiento
                 await ProgressAlert.CloseAsync();
                 await this.ShowMessageAsync("Problema de conexión :(", "Contactar a supervisor");
             }
-           
-
-            
-        
-
-            //int valor = 0;
-            //Usuario usuario = new Usuario();
-            //UsuarioRequest usuarioRequest = new UsuarioRequest();
-            //usuarioRequest.Mail = email;
-            //usuarioRequest.Clave = pass;
-            ////string requestUrl = "http://186.64.123.8:8080/mi-estacionamiento-web/usuario/login/ADMIN@ADMIN.CL/admin";
-            //string requestUrl = "http://localhost:8090/mi-estacionamiento-web/usuario/login/adminasdjas/admin";
-            //object JSONRequest = usuarioRequest;
-            //string JSONmethod = "POST";
-            //string JSONContentType = "application/json";
-            //Type JSONResponseType = typeof(UsuarioResponse);
-
-            //MakeRequest(requestUrl, JSONRequest, JSONmethod, JSONContentType, JSONResponseType);
-
-
-
-
-
-
-
         }
 
         private void txtemail_TextChanged(object sender, TextChangedEventArgs e)
