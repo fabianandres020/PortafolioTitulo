@@ -22,9 +22,17 @@
         <TextBox x:Name="txtApellidoP" HorizontalAlignment="Left" Height="28" Margin="238,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251" FontFamily="Century Gothic" FontSize="16" IsReadOnly="True" IsEnabled="False"/>
         <TextBox x:Name="txtApellidoM" HorizontalAlignment="Left" Height="29" Margin="237,315,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251" FontFamily="Century Gothic" FontSize="16" IsReadOnly="True" IsEnabled="False"/>
         <TextBox x:Name="txtTelefono" HorizontalAlignment="Left" Height="28" Margin="238,361,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="252" FontFamily="Century Gothic" FontSize="16" IsReadOnly="True" IsEnabled="False"/>
-        <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="192,458,0,0" VerticalAlignment="Top" Width="236" Height="36" FontFamily="Century Gothic" FontSize="16" Click="btnEditar_Click"/>
-        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="582,458,0,0" VerticalAlignment="Top" Width="236" Height="36" FontFamily="Century Gothic" FontSize="16" Click="btnGuardar_Click"/>
-        <Button x:Name="btnVolver1" Content="" HorizontalAlignment="Left" Margin="10,458,0,0" VerticalAlignment="Top" Width="64" Height="60" BorderBrush="{x:Null}" Click="btnVolver1_Click" Foreground="{x:Null}">
+        <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="192,421,0,0" VerticalAlignment="Top" Width="236" Height="36" FontFamily="Century Gothic" FontSize="16" Click="btnEditar_Click"/>
+        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="582,421,0,0" VerticalAlignment="Top" Width="236" Height="36" FontFamily="Century Gothic" FontSize="16" Click="btnGuardar_Click"/>
+        <Button x:Name="btnVolver1" Content="" HorizontalAlignment="Left" Margin="31,459,0,0" VerticalAlignment="Top" Width="64" Height="66" BorderBrush="{x:Null}" Click="btnVolver1_Click" Foreground="{x:Null}" RenderTransformOrigin="0.436,0.545">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="1.848"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="1.064"/>
+                </TransformGroup>
+            </Button.RenderTransform>
             <Button.Background>
                 <ImageBrush ImageSource="Imagenes/Previous.png"/>
             </Button.Background>
@@ -36,13 +44,14 @@
         <TextBlock Height="20" HorizontalAlignment="Left" x:Name ="errormessage" VerticalAlignment="Top" Width="247" Margin="237,206,0,0" Foreground="#FFE5572C" FontFamily="Century Gothic" FontSize="13.333" FontWeight="Bold" OpacityMask="#FFFD0000" />
         <Label x:Name="label4_Copy1" Content="Clave" HorizontalAlignment="Left" Margin="552,267,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="132"/>
         <TextBox x:Name="txtPass" HorizontalAlignment="Left" Height="29" Margin="633,267,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="16" IsReadOnly="True" IsEnabled="False"/>
-        <ComboBox x:Name="cbEstado" HorizontalAlignment="Left" Margin="633,315,0,0" VerticalAlignment="Top" Width="296">
+        <ComboBox x:Name="cbEstado" HorizontalAlignment="Left" Margin="633,315,0,0" VerticalAlignment="Top" Width="296" IsEnabled="False" IsReadOnly="True">
             <ComboBoxItem Content="Activo"/>
             <ComboBoxItem Content="No Activo"/>
         </ComboBox>
         <Label x:Name="label4_Copy2" Content="Estado" HorizontalAlignment="Left" Margin="552,309,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="132"/>
-        <ComboBox x:Name="cbRol" HorizontalAlignment="Left" Margin="633,367,0,0" VerticalAlignment="Top" Width="296"/>
+        <ComboBox x:Name="cbRol" HorizontalAlignment="Left" Margin="633,367,0,0" VerticalAlignment="Top" Width="296" IsReadOnly="True" IsEnabled="False"/>
         <Label x:Name="label4_Copy3" Content="Rol" HorizontalAlignment="Left" Margin="552,361,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="132"/>
+        <Button x:Name="btnNoEdit" Content="Volver a Buscar" HorizontalAlignment="Left" Margin="192,483,0,0" VerticalAlignment="Top" Width="236" Height="35" Click="btnNoEdit_Click"/>
 
     </Grid>
 </Controls:MetroWindow>

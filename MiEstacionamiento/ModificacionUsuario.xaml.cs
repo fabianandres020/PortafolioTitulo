@@ -32,6 +32,7 @@ namespace MiEstacionamiento
             cbRol.SelectedValuePath = "idRol";
             cbRol.DisplayMemberPath = "nombre";
             cbRol.ItemsSource = rol.result;
+            btnNoEdit.IsEnabled = false;
 
 
         }
@@ -77,21 +78,10 @@ namespace MiEstacionamiento
             }
             else
             {
-                txtBrut.IsEnabled = false;
-                txtNombre.IsEnabled = true;
-                txtApellidoM.IsEnabled = true;
-                txtApellidoP.IsEnabled = true;
-                txtEmail.IsEnabled = true;
-                txtTelefono.IsEnabled = true;
-
-                txtNombre.IsReadOnly = false;
-                txtApellidoM.IsReadOnly = false;
-                txtApellidoP.IsReadOnly = false;
-                txtEmail.IsReadOnly = false;
-                txtTelefono.IsReadOnly = false;
+                HabilitarContenido();
+                btnNoEdit.IsEnabled = true;
             }
-            
-            //txtDireccion.IsReadOnly = false;
+
 
         }
 
@@ -122,21 +112,18 @@ namespace MiEstacionamiento
             string email = txtEmail.Text.Trim();
             string telefono = txtTelefono.Text.Trim();
             string pass = txtPass.Text.Trim();
+            int idEstado = cbEstado.SelectedIndex+1;
+            int idRol = cbRol.SelectedIndex + 1;
             
            // string direccion = txtDireccion.Text.Trim();
             ApiOperacion ops = new ApiOperacion();
-            Usuario user = ops.Modificar(rut, nombre, apellidoM, apellidoP, email, telefono,pass);
+            Usuario user = ops.Modificar(rut, nombre, apellidoM, apellidoP, email, telefono,pass,idEstado,idRol);
 
             await this.ShowMessageAsync("Exito", "Modificacion exitosa");
 
-            txtBrut.IsEnabled = true;
-            txtBrut.Text = string.Empty;
-            txtNombre.Text = string.Empty;
-            txtApellidoM.Text = string.Empty;
-            txtApellidoP.Text = string.Empty;
-            txtEmail.Text = string.Empty;
-            txtTelefono.Text = string.Empty;
-           //txtDireccion.Text = string.Empty;
+            DeshabilitarContenido();
+           
+
            }
         }
 
@@ -164,14 +151,14 @@ namespace MiEstacionamiento
                 {
                     if (user.result[0] == null)
                     {
-                        await Task.Delay(2000);
+                        await Task.Delay(2500);
                         await ProgressAlert.CloseAsync();
                         await this.ShowMessageAsync("Oh hubo un problema :(", "Rut no Encontrado");
                         txtBrut.Focus();
                     }
                     else
                     {
-                        await Task.Delay(3000);
+                        await Task.Delay(2000);
                         await ProgressAlert.CloseAsync();
                         txtNombre.Text = user.result[0].nombre;
                         txtApellidoM.Text = user.result[0].apellidoMaterno;
@@ -188,7 +175,7 @@ namespace MiEstacionamiento
                         {
                             cbEstado.SelectedIndex = 1;
                         }
-                        cbRol.SelectedIndex = user.result[0].idRol+1;
+                        cbRol.SelectedIndex = user.result[0].idRol-1;
                             
 
 
@@ -202,6 +189,68 @@ namespace MiEstacionamiento
                     await this.ShowMessageAsync("Problema de conexión :(", "Contacte al administrador");
                 }
             }
+        }
+
+        private void HabilitarContenido()
+        {
+            txtBrut.IsEnabled = false;
+            txtNombre.IsEnabled = true;
+            txtApellidoM.IsEnabled = true;
+            txtApellidoP.IsEnabled = true;
+            txtEmail.IsEnabled = true;
+            txtTelefono.IsEnabled = true;
+            txtPass.IsEnabled = true;
+            cbEstado.IsEnabled = true;
+            cbRol.IsEnabled = true;
+
+            txtNombre.IsReadOnly = false;
+            txtApellidoM.IsReadOnly = false;
+            txtApellidoP.IsReadOnly = false;
+            txtEmail.IsReadOnly = false;
+            txtTelefono.IsReadOnly = false;
+            txtPass.IsReadOnly = false;
+            cbEstado.IsReadOnly = false;
+            cbRol.IsReadOnly = false;
+        }
+
+        private void DeshabilitarContenido()
+        {
+            txtBrut.Focus();
+            txtBrut.IsEnabled = true;
+            txtBrut.Text = string.Empty;
+            txtNombre.Text = string.Empty;
+            txtApellidoM.Text = string.Empty;
+            txtApellidoP.Text = string.Empty;
+            txtEmail.Text = string.Empty;
+            txtTelefono.Text = string.Empty;
+            txtPass.Text = string.Empty;
+            cbEstado.SelectedItem = null;
+            cbRol.SelectedItem = null;
+
+            txtBrut.IsEnabled = true;
+            txtNombre.IsEnabled = false;
+            txtApellidoM.IsEnabled = false;
+            txtApellidoP.IsEnabled = false;
+            txtEmail.IsEnabled = false;
+            txtTelefono.IsEnabled = false;
+            txtPass.IsEnabled = false;
+            cbEstado.IsEnabled = false;
+            cbRol.IsEnabled = false;
+
+            txtNombre.IsReadOnly = true;
+            txtApellidoM.IsReadOnly = true;
+            txtApellidoP.IsReadOnly = true;
+            txtEmail.IsReadOnly = true;
+            txtTelefono.IsReadOnly = true;
+            txtPass.IsReadOnly = true;
+            cbEstado.IsReadOnly = true;
+            cbRol.IsReadOnly = true;
+        }
+
+        private void btnNoEdit_Click(object sender, RoutedEventArgs e)
+        {
+            DeshabilitarContenido();
+
         }
     }
 }

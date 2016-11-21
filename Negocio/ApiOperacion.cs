@@ -105,7 +105,7 @@ namespace Negocio
                 return null;
             }
         }
-        public Usuario Modificar(string rut,string nombre,string apellidoM,string apellidoP,string email,string telefono,string pass)
+        public Usuario Modificar(string rut,string nombre,string apellidoM,string apellidoP,string email,string telefono,string pass,int idEstado , int idRol)
         {
             string endpoint = this.baseUrl + "/usuario/update";
             string method = "POST";
@@ -118,6 +118,8 @@ namespace Negocio
                 correoUsuario = email,
                 claveUsuario = pass,
                 fonoUsuario = telefono,
+                idEstado=idEstado,
+                idRol=idRol
                
             });
             WebClient wc = new WebClient();
