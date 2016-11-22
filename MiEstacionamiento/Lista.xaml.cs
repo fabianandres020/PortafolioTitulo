@@ -24,10 +24,25 @@ namespace MiEstacionamiento
     /// </summary>
     public partial class Lista : MetroWindow
     {
+
+        public bool consultor=false;
         
         public Lista()
         {
             InitializeComponent();
+        }
+        private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (consultor)
+            {
+                CargarListar();
+                dataLista.Columns.RemoveAt(6);
+                btnEliminar.IsEnabled = false;
+                btnModifica.IsEnabled = false;
+                btnVolver1.IsEnabled = false;
+                btnBuscar.IsEnabled = false;
+
+            }
         }
 
         private async void button_Click(object sender, RoutedEventArgs e)
@@ -56,6 +71,7 @@ namespace MiEstacionamiento
             ApiOperacion ops = new ApiOperacion();
             Usuario datos = ops.listar();
             dataLista.ItemsSource = datos.result;
+           
         }
 
         private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -117,5 +133,7 @@ namespace MiEstacionamiento
 
 
         }
+
+       
     }
 }

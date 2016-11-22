@@ -111,5 +111,15 @@ namespace MiEstacionamiento
         {
 
         }
+
+        private void label_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+            Lista _ver = new Lista();
+            _ver.consultor = true;
+            //cerrar esta ventana 
+            this.Close();
+            _ver.ShowDialog();
+        }
     }
 }

@@ -9,7 +9,7 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"              
-        Title="Lista de Usuarios" Height="555" Width="1024" Background="AliceBlue" WindowStartupLocation="CenterScreen">
+        Title="Lista de Usuarios" Height="555" Width="1024" Background="AliceBlue" WindowStartupLocation="CenterScreen" Loaded="MetroWindow_Loaded">
     <Grid>
 
         <Label x:Name="label" Content="Lista De Usuarios" HorizontalAlignment="Left" Margin="110,10,0,0" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="48"/>
