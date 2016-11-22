@@ -24,6 +24,7 @@ namespace MiEstacionamiento
     /// </summary>
     public partial class Lista : MetroWindow
     {
+        
         public Lista()
         {
             InitializeComponent();
@@ -33,10 +34,11 @@ namespace MiEstacionamiento
         {
             try
             {
-
-                ApiOperacion ops = new ApiOperacion();
-                Usuario datos = ops.listar();
-                dataLista.ItemsSource = datos.result;
+                var ProgressAlert = await this.ShowProgressAsync("Conectando con el servidor", "Listando Usuarios");
+                ProgressAlert.SetIndeterminate(); //Infinite
+                await Task.Delay(2500);
+                await ProgressAlert.CloseAsync();
+                CargarListar();
             }
             catch (Exception ex)
             {
@@ -47,6 +49,13 @@ namespace MiEstacionamiento
 
 
 
+        }
+
+        private void CargarListar()
+        {
+            ApiOperacion ops = new ApiOperacion();
+            Usuario datos = ops.listar();
+            dataLista.ItemsSource = datos.result;
         }
 
         private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -69,6 +78,7 @@ namespace MiEstacionamiento
                 ApiOperacion ops = new ApiOperacion();
                 Usuario user = ops.Elminiar(rut);
                 await this.ShowMessageAsync("Operacion Realizada(", "Se a eliminado al usuario");
+                CargarListar();
 
             }
             catch (Exception ex)
@@ -88,6 +98,24 @@ namespace MiEstacionamiento
             //cerrar esta ventana 
             this.Close();
             _ver.ShowDialog();
+        }
+
+        private async void btnModifica_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataLista.SelectedItem!=null)
+            {
+                Result usuarioSeleccionado = dataLista.SelectedItem as Result;
+                ModificacionUsuario _ver = new ModificacionUsuario();
+                _ver.rutAModificar = usuarioSeleccionado.rutUsuario;
+                _ver.ShowDialog();
+            }
+            else
+            {
+                await this.ShowMessageAsync("Error!!", "Debe Seleccionar un ususario");
+
+            }
+
+
         }
     }
 }

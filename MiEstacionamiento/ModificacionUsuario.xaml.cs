@@ -23,19 +23,32 @@ namespace MiEstacionamiento
     /// </summary>
     public partial class ModificacionUsuario : MetroWindow
     {
+        public string rutAModificar;
         public ModificacionUsuario()
         {
             InitializeComponent();
             //cbEstado.SelectedIndex = 1;
+           
+         
+        }
+        private async void MetroWindow_Loaded(object sender, RoutedEventArgs e)
+        {
             ApiOperacion ops = new ApiOperacion();
             Rol rol = ops.ListarRol();
             cbRol.SelectedValuePath = "idRol";
             cbRol.DisplayMemberPath = "nombre";
             cbRol.ItemsSource = rol.result;
             btnNoEdit.IsEnabled = false;
+            if (rutAModificar != null)
+            {
+                txtBrut.Text = rutAModificar;
+                var ProgressAlert = await this.ShowProgressAsync("Conectando con el servidor", "Buscando Datos....");
+                ProgressAlert.SetIndeterminate();
+                await RellenarDatos(ProgressAlert, rutAModificar);
 
-
+            }
         }
+
 
         private void btnVolver1_Click(object sender, RoutedEventArgs e)
         {
@@ -145,49 +158,54 @@ namespace MiEstacionamiento
                 ProgressAlert.SetIndeterminate(); //Infinite
                 errormessage.Text = string.Empty;
                 string rut = txtBrut.Text.Trim();
-                ApiOperacion ops = new ApiOperacion();
-                Usuario user = ops.Buscar(rut);
-                try
+                await RellenarDatos(ProgressAlert, rut);
+            }
+        }
+
+        private async Task RellenarDatos(ProgressDialogController ProgressAlert, string rut)
+        {
+            ApiOperacion ops = new ApiOperacion();
+            Usuario user = ops.Buscar(rut);
+            try
+            {
+                if (user.result[0] == null)
                 {
-                    if (user.result[0] == null)
+                    await Task.Delay(2500);
+                    await ProgressAlert.CloseAsync();
+                    await this.ShowMessageAsync("Oh hubo un problema :(", "Rut no Encontrado");
+                    txtBrut.Focus();
+                }
+                else
+                {
+                    await Task.Delay(2000);
+                    await ProgressAlert.CloseAsync();
+                    txtNombre.Text = user.result[0].nombre;
+                    txtApellidoM.Text = user.result[0].apellidoMaterno;
+                    txtApellidoP.Text = user.result[0].apellidoPaterno;
+                    txtEmail.Text = user.result[0].correoUsuario;
+                    txtTelefono.Text = user.result[0].fonoUsuario;
+                    txtPass.Text = user.result[0].claveUsuario;
+                    int estado = user.result[0].idEstado;
+                    if (estado == 1)
                     {
-                        await Task.Delay(2500);
-                        await ProgressAlert.CloseAsync();
-                        await this.ShowMessageAsync("Oh hubo un problema :(", "Rut no Encontrado");
-                        txtBrut.Focus();
+                        cbEstado.SelectedIndex = 0;
                     }
                     else
                     {
-                        await Task.Delay(2000);
-                        await ProgressAlert.CloseAsync();
-                        txtNombre.Text = user.result[0].nombre;
-                        txtApellidoM.Text = user.result[0].apellidoMaterno;
-                        txtApellidoP.Text = user.result[0].apellidoPaterno;
-                        txtEmail.Text = user.result[0].correoUsuario;
-                        txtTelefono.Text = user.result[0].fonoUsuario;
-                        txtPass.Text = user.result[0].claveUsuario;
-                        int estado = user.result[0].idEstado;
-                        if (estado==1)
-                        {
-                            cbEstado.SelectedIndex = 0;
-                        }
-                        else
-                        {
-                            cbEstado.SelectedIndex = 1;
-                        }
-                        cbRol.SelectedIndex = user.result[0].idRol-1;
-                            
-
-
+                        cbEstado.SelectedIndex = 1;
                     }
-                }
-                catch (Exception)
-                {
+                    cbRol.SelectedIndex = user.result[0].idRol - 1;
 
-                    await Task.Delay(3000);
-                    await ProgressAlert.CloseAsync();
-                    await this.ShowMessageAsync("Problema de conexión :(", "Contacte al administrador");
+
+
                 }
+            }
+            catch (Exception)
+            {
+
+                await Task.Delay(3000);
+                await ProgressAlert.CloseAsync();
+                await this.ShowMessageAsync("Problema de conexión :(", "Contacte al administrador");
             }
         }
 
@@ -252,5 +270,12 @@ namespace MiEstacionamiento
             DeshabilitarContenido();
 
         }
+
+        private void image1_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+       
     }
 }

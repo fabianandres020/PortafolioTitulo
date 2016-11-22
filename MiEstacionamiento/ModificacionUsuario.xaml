@@ -9,7 +9,7 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"              
-        Title="Sistema Mi Estacionamiento V.0.1 Modificacion Usuario" Height="555" Width="1024" Background="AliceBlue" WindowStartupLocation="CenterScreen">
+        Title="Sistema Mi Estacionamiento V.0.1 Modificacion Usuario" Height="555" Width="1024" Background="AliceBlue" WindowStartupLocation="CenterScreen" Loaded="MetroWindow_Loaded">
     <Grid>
         <Label x:Name="label" Content="Modificacion De Usuario" HorizontalAlignment="Left" Margin="10,73,0,0" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="34.667" Height="58" Width="479"/>
         <Label x:Name="label_Copy" Content="Buscar Usuario" HorizontalAlignment="Left" Margin="4,166,0,0" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="22"/>
@@ -39,7 +39,7 @@
         </Button>
         <Label x:Name="label4_Copy" Content="Email" HorizontalAlignment="Left" Margin="552,226,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="132"/>
         <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="29" Margin="633,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="16" IsReadOnly="True" IsEnabled="False"/>
-        <Image x:Name="image1" HorizontalAlignment="Left" Height="146" Margin="739,10,0,0" VerticalAlignment="Top" Width="277" Source="Imagenes/Logo.png"/>
+        <Image x:Name="image1" Margin="739,10,0,0" Source="Imagenes/Logo.png" HorizontalAlignment="Left" Width="277" Height="146" VerticalAlignment="Top" Loaded="image1_Loaded"/>
         <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="522,173,0,0" VerticalAlignment="Top" Width="104" Click="btnBuscar_Click" Height="33"/>
         <TextBlock Height="20" HorizontalAlignment="Left" x:Name ="errormessage" VerticalAlignment="Top" Width="247" Margin="237,206,0,0" Foreground="#FFE5572C" FontFamily="Century Gothic" FontSize="13.333" FontWeight="Bold" OpacityMask="#FFFD0000" />
         <Label x:Name="label4_Copy1" Content="Clave" HorizontalAlignment="Left" Margin="552,267,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="132"/>

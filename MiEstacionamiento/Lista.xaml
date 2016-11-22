@@ -12,11 +12,11 @@
         Title="Lista de Usuarios" Height="555" Width="1024" Background="AliceBlue" WindowStartupLocation="CenterScreen">
     <Grid>
 
-        <Label x:Name="label" Content="Lista De Usuarios" HorizontalAlignment="Left" Margin="110,32,0,0" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="48"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Source="Imagenes/Format-Bullets-01.png"/>
+        <Label x:Name="label" Content="Lista De Usuarios" HorizontalAlignment="Left" Margin="110,10,0,0" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="48"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="5,0,0,0" VerticalAlignment="Top" Width="100" Source="Imagenes/Format-Bullets-01.png"/>
         <Label x:Name="label_Copy" Content="listar usuarios" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="20"/>
-        <Button x:Name="btnBuscar" Content="Listar" HorizontalAlignment="Left" Margin="217,110,0,0" VerticalAlignment="Top" Width="81" Click="button_Click" Height="30"/>
-        <DataGrid x:Name="dataLista" Grid.Row="0" Margin="10,151,10,77" SelectionChanged="dataLista_SelectionChanged"
+        <Button x:Name="btnBuscar" Content="Listar" HorizontalAlignment="Left" Margin="217,110,0,0" VerticalAlignment="Top" Width="81" Click="button_Click" Height="30" FontFamily="Century Gothic"/>
+        <DataGrid x:Name="dataLista" Grid.Row="0" Margin="10,151,10,77" SelectionChanged="dataLista_SelectionChanged" SelectionMode="Single"
                   >
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn ElementStyle="{DynamicResource MetroDataGridCheckBox}"
@@ -26,13 +26,13 @@
                                         />
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="601,110,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminar_Click" Height="30"/>
-        <Label x:Name="label_Copy1" Content="Eliminar seleccionado " HorizontalAlignment="Left" Margin="335,110,0,0" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="20"/>
-        <Button x:Name="btnVolver1" Content="" HorizontalAlignment="Left" Margin="10,475,0,0" VerticalAlignment="Top" Width="52" Height="48" BorderBrush="{x:Null}" Click="btnVolver1_Click" Foreground="{x:Null}">
+        <Button x:Name="btnEliminar" Content="Eliminar Selección" HorizontalAlignment="Left" Margin="664,474,0,0" VerticalAlignment="Top" Width="154" Click="btnEliminar_Click" Height="30" FontFamily="Century Gothic"/>
+        <Button x:Name="btnVolver1" Content="" HorizontalAlignment="Left" Margin="10,475,0,0" VerticalAlignment="Top" Width="52" Height="47" BorderBrush="{x:Null}" Click="btnVolver1_Click" Foreground="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="Imagenes/Previous.png"/>
             </Button.Background>
         </Button>
-        <Image x:Name="image1" HorizontalAlignment="Left" Height="174" Margin="628,-28,-48,0" VerticalAlignment="Top" Width="436" Source="Imagenes/baner.png"/>
+        <Image x:Name="image1" Margin="730,10,10,0" Source="Imagenes/Logo.png" Height="141" VerticalAlignment="Top"/>
+        <Button x:Name="btnModifica" Content="Modificar Selección " HorizontalAlignment="Left" Margin="852,475,0,0" VerticalAlignment="Top" Width="154" RenderTransformOrigin="-0.094,1.793" Click="btnModifica_Click" FontFamily="Century Gothic"/>
     </Grid>
 </Controls:MetroWindow>
