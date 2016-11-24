@@ -25,7 +25,7 @@
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="4" Opacity="0.95"/>
             </Controls:Tile.Effect>
-            <Image Source="Imagenes/Car-01.png" Height="145" Width="135" RenderTransformOrigin="0.5,0.5"/>
+            <Image Source="Imagenes/Car-01.png" Height="109" Width="135" RenderTransformOrigin="0.5,0.5"/>
         </Controls:Tile>
         <Controls:Tile x:Name="btnBuscarVeh" Margin="521,146,285,228" Height="Auto" Width="Auto" Title="Buscar Vehículo" Click="btnBuscarVeh_Click" FontFamily="Century Gothic" FontSize="13.333">
             <Controls:Tile.Effect>
@@ -37,7 +37,7 @@
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="4" Opacity="0.95"/>
             </Controls:Tile.Effect>
-            <Image Source="Imagenes/Logout.png" Height="103" Width="103" RenderTransformOrigin="0.5,0.5"/>
+            <Image Source="Imagenes/Logout.png" Height="91" Width="91" RenderTransformOrigin="0.5,0.5"/>
         </Controls:Tile>
         <Controls:Tile x:Name="btnEliminarVeh" Margin="105,364,676,32" Height="Auto" Width="Auto" Title="Eliminar Vehículo" Click="btnEliminarVeh_Click" FontFamily="Century Gothic" FontSize="13.333">
             <Controls:Tile.Effect>

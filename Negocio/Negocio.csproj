@@ -47,6 +47,8 @@
     <Compile Include="ApiOperacion.cs" />
     <Compile Include="Globals.cs" />
     <Compile Include="ListaUsuario.cs" />
+    <Compile Include="Marca.cs" />
+    <Compile Include="Modelo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rol.cs" />
     <Compile Include="Usuario.cs" />

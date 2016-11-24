@@ -32,13 +32,10 @@ namespace MiEstacionamiento
         {
             try
             {
-                string patente = txtPatente.Text.Trim();
-                string rutU = txtRutU.Text.Trim();
-                string rutP = txtRutP.Text.Trim();
-                string tipoV = txtTipoV.Text.Trim();
                 string marca = txtMarca.Text.Trim();
-                ApiOperacion ops = new ApiOperacion();
-                Vehiculo veh = ops.Ingresar(patente, rutP, rutU, tipoV, marca);
+                string modelo = txtModelo.Text.Trim();
+               
+              
                 await this.ShowMessageAsync("Exito", "Ingreso exitosa");
             }
             catch (Exception)
@@ -55,6 +52,11 @@ namespace MiEstacionamiento
             Administracion _ver = new Administracion();
             this.Close();
             _ver.ShowDialog();
+        }
+
+        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
