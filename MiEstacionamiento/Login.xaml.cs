@@ -70,23 +70,20 @@ namespace MiEstacionamiento
                 string pass = txtpws.Password.Trim();
                 ApiOperacion ops = new ApiOperacion();
                 UsuarioTest user = ops.autentificacion(email, pass);
+                
                 if (user.result == null)
                 {
 
                         await Task.Delay(3000);
                         await ProgressAlert.CloseAsync();
-                        await this.ShowMessageAsync("Oh hubo un problema", "Tus datos son Incorrectos");
+                        await this.ShowMessageAsync("Problemas de autentificación", "Tus datos son Incorrectos");
                         txtemail.Focus();
 
                 }
-                else
+                else if(user.result.idRol==3)
                 {
                     
                         Globals.LoggedInUser = user;
-                        //mostrar ventana estilo w 8
-
-                        //await this.ShowMessageAsync("Exito!", "Tus datos son correctos");
-                        // mostrar la ventana menu
                         await Task.Delay(3000);
                         await ProgressAlert.CloseAsync();
                       
@@ -95,6 +92,14 @@ namespace MiEstacionamiento
                     this.Close();
                     _ver.ShowDialog();
                 }
+                else
+                {
+                        await Task.Delay(3000);
+                        await ProgressAlert.CloseAsync();
+                        await this.ShowMessageAsync("Problemas de autentificación", "Acceso denegado,No posees los permisos suficientes ");
+                        txtemail.Focus();
+                    }
+
                 }
 
             }
@@ -103,7 +108,7 @@ namespace MiEstacionamiento
                 string log = ex.Message;
                 await Task.Delay(3000);
                 await ProgressAlert.CloseAsync();
-                await this.ShowMessageAsync("Problema de conexión :(", "Contactar a supervisor");
+                await this.ShowMessageAsync("Problema de conexión", "Contactar a supervisor");
             }
         }
 

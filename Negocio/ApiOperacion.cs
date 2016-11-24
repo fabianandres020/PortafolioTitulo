@@ -17,7 +17,7 @@ namespace Negocio
         {
             this.baseUrl = "http://186.64.123.8:80/mi-estacionamiento-web";
         }
-        public Usuario Ingresar(string rut, string nombre, string apellidoM, string apellidoP,string telefono, string email, string clave, string rol, string estado)
+        public Usuario Ingresar(string rut, string nombre, string apellidoM, string apellidoP,string telefono, string email, string clave, int rol, int estado)
         {
             string endpoint = this.baseUrl + "/usuario/insert";
             string method = "POST";
@@ -44,6 +44,7 @@ namespace Negocio
             catch (Exception)
             {
                 return null;
+                
             }
 
         }

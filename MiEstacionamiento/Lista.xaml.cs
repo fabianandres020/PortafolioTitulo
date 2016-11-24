@@ -51,7 +51,7 @@ namespace MiEstacionamiento
             {
                 var ProgressAlert = await this.ShowProgressAsync("Conectando con el servidor", "Listando Usuarios");
                 ProgressAlert.SetIndeterminate(); //Infinite
-                await Task.Delay(2500);
+                await Task.Delay(2000);
                 await ProgressAlert.CloseAsync();
                 CargarListar();
             }
@@ -93,7 +93,7 @@ namespace MiEstacionamiento
                 string rut = usuarioSeleccionado.rutUsuario;
                 ApiOperacion ops = new ApiOperacion();
                 Usuario user = ops.Elminiar(rut);
-                await this.ShowMessageAsync("Operacion Realizada(", "Se a eliminado al usuario");
+                await this.ShowMessageAsync("Operación Realizada", "Se a eliminado al usuario");
                 CargarListar();
 
             }
@@ -127,7 +127,7 @@ namespace MiEstacionamiento
             }
             else
             {
-                await this.ShowMessageAsync("Error!!", "Debe Seleccionar un ususario");
+                await this.ShowMessageAsync("Error!!", "Debe Seleccionar un usuario");
 
             }
 

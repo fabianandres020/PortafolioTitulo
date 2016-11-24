@@ -13,50 +13,50 @@
         Title="Administracion" Height="555" Width="1024" Background="AliceBlue" WindowStartupLocation="CenterScreen">
 
     <Grid>
-        <Controls:Tile x:Name="btnNuevoUsuario" Margin="10,112,789,240" Height="Auto" Width="Auto" Title="Ingresar Nuevo usuario" Click="Tile_Click">
+        <Controls:Tile x:Name="btnNuevoUsuario" Margin="10,146,793,228" Height="Auto" Width="Auto" Title="Ingresar Nuevo usuario" Click="Tile_Click" FontFamily="Century Gothic" FontSize="13.333">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="4" Opacity="0.95"/>
             </Controls:Tile.Effect>
             <Image Source="Imagenes/User-Add.png" Height="148" Width="148"></Image>
         </Controls:Tile>
-        <Label x:Name="label" Content="Administracion" HorizontalAlignment="Left" Margin="105,27,0,0" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="48"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="0,10,0,0" VerticalAlignment="Top" Width="100" Source="Imagenes/Installation-02.png"/>
-        <Controls:Tile x:Name="btnAddCar" Margin="248,112,551,240" Height="Auto" Width="Auto" Title="Agregar Vehículo" Click="btnLista_Click">
+        <Label x:Name="label" Content="Administracion" HorizontalAlignment="Left" Margin="135,34,0,0" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="48"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="30,10,0,0" VerticalAlignment="Top" Width="100" Source="Imagenes/Installation-02.png"/>
+        <Controls:Tile x:Name="btnAddCar" Margin="264,146,539,228" Height="Auto" Width="Auto" Title="Agregar Nueva Marca / Modelo" Click="btnLista_Click" FontFamily="Century Gothic" FontSize="13.333">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="4" Opacity="0.95"/>
             </Controls:Tile.Effect>
-            <Image Source="Imagenes/Car-01.png" Height="173" Width="161" RenderTransformOrigin="0.5,0.5"/>
+            <Image Source="Imagenes/Car-01.png" Height="145" Width="135" RenderTransformOrigin="0.5,0.5"/>
         </Controls:Tile>
-        <Controls:Tile x:Name="btnBuscarVeh" Margin="494,112,305,240" Height="Auto" Width="Auto" Title="Buscar Vehículo" Click="btnBuscarVeh_Click">
+        <Controls:Tile x:Name="btnBuscarVeh" Margin="521,146,285,228" Height="Auto" Width="Auto" Title="Buscar Vehículo" Click="btnBuscarVeh_Click" FontFamily="Century Gothic" FontSize="13.333">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="4" Opacity="0.95"/>
             </Controls:Tile.Effect>
-            <Image Source="Imagenes/Meter-02.png" Height="131" Width="137" Stretch="Fill"/>
+            <Image Source="Imagenes/Meter-02.png" Height="117" Width="122" Stretch="Fill"/>
         </Controls:Tile>
-        <Controls:Tile x:Name="tltSalir" Margin="782,370,48,26" Height="Auto" Width="Auto" Title="Salir" Click="tltSalir_Click">
+        <Controls:Tile x:Name="tltSalir" Margin="406,364,424,32" Height="Auto" Width="Auto" Title="Salir" Click="tltSalir_Click" FontFamily="Century Gothic" FontSize="13.333">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="4" Opacity="0.95"/>
             </Controls:Tile.Effect>
-            <Image Source="Imagenes/Logout.png" Height="91" Width="91"/>
+            <Image Source="Imagenes/Logout.png" Height="103" Width="103" RenderTransformOrigin="0.5,0.5"/>
         </Controls:Tile>
-        <Controls:Tile x:Name="btnEliminarVeh" Margin="751,112,48,240" Height="Auto" Width="Auto" Title="Eliminar Vehículo" Click="btnEliminarVeh_Click">
+        <Controls:Tile x:Name="btnEliminarVeh" Margin="105,364,676,32" Height="Auto" Width="Auto" Title="Eliminar Vehículo" Click="btnEliminarVeh_Click" FontFamily="Century Gothic" FontSize="13.333">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="4" Opacity="0.95"/>
             </Controls:Tile.Effect>
-            <Image Source="Imagenes/Cancel.png" Height="148" Width="148" Stretch="Fill"/>
+            <Image Source="Imagenes/Cancel.png" Height="114" Width="114" Stretch="Fill"/>
         </Controls:Tile>
-        <Controls:Tile x:Name="btnListarEsta" Margin="494,338,305,14" Height="Auto" Width="Auto" Title="Listar Estacionamientos" Click="btnListarEstacionamientos_Click">
+        <Controls:Tile x:Name="btnListarEsta" Margin="789,146,10,228" Height="Auto" Width="Auto" Title="Listar Estacionamientos" Click="btnListarEstacionamientos_Click" FontFamily="Century Gothic" FontSize="13.333">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="4" Opacity="0.95"/>
             </Controls:Tile.Effect>
-            <Image Source="Imagenes/Table.png" Height="148" Width="148" Stretch="Fill"/>
+            <Image Source="Imagenes/Table.png" Height="120" Width="120" Stretch="Fill"/>
         </Controls:Tile>
         <Button x:Name="btnVolver" Content="" HorizontalAlignment="Left" Margin="10,475,0,0" VerticalAlignment="Top" Width="52" Height="48" BorderBrush="{x:Null}" Click="btnVolver1_Click" Foreground="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="Imagenes/Previous.png"/>
             </Button.Background>
         </Button>
-        <Image x:Name="image1" HorizontalAlignment="Left" Height="217" Margin="105,338,0,0" VerticalAlignment="Top" Width="265" Source="Imagenes/LOGO2.png"/>
+        <Image x:Name="image1" HorizontalAlignment="Left" Height="163" Margin="772,0,0,0" VerticalAlignment="Top" Width="242" Source="Imagenes/Logo.png"/>
 
     </Grid>
 </Controls:MetroWindow>

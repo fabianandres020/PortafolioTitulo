@@ -86,7 +86,7 @@ namespace MiEstacionamiento
         {
             if (txtBrut.Text.Length==0)
             {
-                errormessage.Text = "Ingresar rut ";
+                errormessage.Text = "Ingresar Rut ";
                 txtBrut.Focus();
             }
             else
@@ -102,17 +102,17 @@ namespace MiEstacionamiento
         {
             if (txtBrut.Text.Length==0)
             {
-                errormessage.Text = "Ingresar rut";
+                errormessage.Text = "Ingresar Rut";
                 txtBrut.Focus();
             }
             else if (txtBrut.Text.Length < 8 || txtBrut.Text.Length > 11)
             {
-                errormessage.Text = "Ingresar rut valido";
+                errormessage.Text = "Ingresar Rut Valido";
                 txtBrut.Focus();
             }
             else if (txtNombre.Text.Length== 0 || txtApellidoP.Text.Length == 0 || txtApellidoM.Text.Length== 0 || txtEmail.Text.Length== 0)
             {
-                errormessage.Text = "Ingresar datos";
+                errormessage.Text = "Ingresar Datos";
                 txtBrut.Focus();
             }
             else
@@ -127,12 +127,25 @@ namespace MiEstacionamiento
             string pass = txtPass.Text.Trim();
             int idEstado = cbEstado.SelectedIndex+1;
             int idRol = cbRol.SelectedIndex + 1;
-            
-           // string direccion = txtDireccion.Text.Trim();
-            ApiOperacion ops = new ApiOperacion();
-            Usuario user = ops.Modificar(rut, nombre, apellidoM, apellidoP, email, telefono,pass,idEstado,idRol);
 
-            await this.ShowMessageAsync("Exito", "Modificacion exitosa");
+                var ProgressAlert = await this.ShowProgressAsync("Conectando con el servidor", "Realizando Cambios....");
+                ProgressAlert.SetIndeterminate(); //Infinite
+                try
+                {
+                    ApiOperacion ops = new ApiOperacion();
+                    Usuario user = ops.Modificar(rut, nombre, apellidoM, apellidoP, email, telefono, pass, idEstado, idRol);
+                    
+                    await Task.Delay(2500);
+                    await ProgressAlert.CloseAsync();
+                    await this.ShowMessageAsync("Operacion Realizada", "Modificación exitosa");
+                }
+                catch (Exception)
+                {
+
+                    await Task.Delay(2500);
+                    await ProgressAlert.CloseAsync();
+                    await this.ShowMessageAsync("Error", "Intente Nuevamente");
+                }
 
             DeshabilitarContenido();
            
@@ -172,7 +185,7 @@ namespace MiEstacionamiento
                 {
                     await Task.Delay(2500);
                     await ProgressAlert.CloseAsync();
-                    await this.ShowMessageAsync("Oh hubo un problema :(", "Rut no Encontrado");
+                    await this.ShowMessageAsync("Problema en la Búsqueda", "Rut No Encontrado");
                     txtBrut.Focus();
                 }
                 else
