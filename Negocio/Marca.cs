@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace Negocio
 {
-    class Marca
+    public class ListaMarcaVehiculo
     {
+        public int idMarca { get; set; }
+        public string nombre { get; set; }
+    }
+
+    public class Marca
+    {
+        public object msg { get; set; }
+        public IList<ListaMarcaVehiculo> listaMarcaVehiculo { get; set; }
     }
 }

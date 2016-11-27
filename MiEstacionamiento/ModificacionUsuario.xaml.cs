@@ -110,7 +110,7 @@ namespace MiEstacionamiento
                 errormessage.Text = "Ingresar Rut Valido";
                 txtBrut.Focus();
             }
-            else if (txtNombre.Text.Length== 0 || txtApellidoP.Text.Length == 0 || txtApellidoM.Text.Length== 0 || txtEmail.Text.Length== 0)
+            else if (txtPass.Text.Length==0 || txtTelefono.Text.Length==0 || txtNombre.Text.Length== 0 || txtApellidoP.Text.Length == 0 || txtApellidoM.Text.Length== 0 || txtEmail.Text.Length== 0)
             {
                 errormessage.Text = "Ingresar Datos";
                 txtBrut.Focus();
@@ -289,6 +289,13 @@ namespace MiEstacionamiento
 
         }
 
-       
+        private void txtTelefono_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            {
+                int ascci = Convert.ToInt32(Convert.ToChar(e.Text));
+                if (ascci >= 48 && ascci <= 57) e.Handled = false;
+                else e.Handled = true;
+            }
+        }
     }
 }

@@ -9,22 +9,32 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"              
-        Title="Agregar Usuario" Height="555" Width="1024" Background="AliceBlue" WindowStartupLocation="CenterScreen">
+        Title="Agregar Maraca y Modelo" Height="555" Width="1024" Background="AliceBlue" WindowStartupLocation="CenterScreen" Loaded="MetroWindow_Loaded">
 
     <Grid Margin="0,25,0,-25">
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="118" Margin="583,167,0,0" Stroke="Black" VerticalAlignment="Top" Width="357"/>
+
+
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="137" Margin="84,167,0,0" Stroke="Black" VerticalAlignment="Top" Width="376"/>
+
+
         <Label x:Name="label" Content="Agregar Marca y modelo" HorizontalAlignment="Left" Margin="110,94,0,0" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="48"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="10,70,0,0" VerticalAlignment="Top" Width="100" Source="Imagenes/User-Add-black.png"/>
-        <Label x:Name="label1" Content="Marca" HorizontalAlignment="Left" Margin="68,254,0,0" VerticalAlignment="Top" Width="174" FontFamily="Century Gothic" FontSize="18.667"/>
-        <Label x:Name="label1_Copy" Content="Modelo" HorizontalAlignment="Left" Margin="68,312,0,0" VerticalAlignment="Top" Width="174" FontFamily="Century Gothic" FontSize="18.667"/>
-        <Button x:Name="btnGuardarVeh" Content="Guardar" HorizontalAlignment="Left" Margin="326,458,0,0" VerticalAlignment="Top" Width="212" Click="btnGuardarVeh_Click"/>
+        <Label x:Name="label1_Copy" Content="Modelo" HorizontalAlignment="Left" Margin="583,231,0,0" VerticalAlignment="Top" Width="96" FontFamily="Century Gothic" FontSize="18.667"/>
+        <Button x:Name="btnGuardarVeh" Content="Guardar" HorizontalAlignment="Left" Margin="200,265,0,0" VerticalAlignment="Top" Width="212" Click="btnGuardarVeh_Click"/>
         <Button x:Name="btnVolver1" Content="" HorizontalAlignment="Left" Margin="19,458,0,0" VerticalAlignment="Top" Width="52" Height="48" BorderBrush="{x:Null}" Click="btnVolver1_Click" Foreground="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="Imagenes/Previous.png"/>
             </Button.Background>
         </Button>
-        <Image x:Name="image1" HorizontalAlignment="Left" Height="247" Margin="759,-25,0,0" VerticalAlignment="Top" Width="247" Source="Imagenes/Logo.png"/>
-        <TextBox x:Name="txtModelo" HorizontalAlignment="Left" Height="33" Margin="284,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254" FontFamily="Century Gothic" FontSize="16" TextChanged="textBox_TextChanged"/>
-        <TextBox x:Name="txtMarca" HorizontalAlignment="Left" Height="33" Margin="284,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254" FontFamily="Century Gothic" FontSize="16" TextChanged="textBox_TextChanged"/>
+        <Image x:Name="image1" HorizontalAlignment="Left" Height="195" Margin="759,-25,0,0" VerticalAlignment="Top" Width="247" Source="Imagenes/Logo.png"/>
+        <TextBox x:Name="txtMarca" HorizontalAlignment="Left" Height="33" Margin="183,212,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254" FontFamily="Century Gothic" FontSize="16" TextChanged="textBox_TextChanged"/>
+        <TextBlock x:Name="errorMarca" HorizontalAlignment="Left" Margin="200,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="212" FontFamily="Century Gothic" Foreground="Red" FontWeight="Bold"/>
+        <Label x:Name="label1" Content="Marca" HorizontalAlignment="Left" Margin="84,212,0,0" VerticalAlignment="Top" Width="174" FontFamily="Century Gothic" FontSize="18.667"/>
+        <Label x:Name="label1_Copy1" Content="Marca" HorizontalAlignment="Left" Margin="583,185,0,0" VerticalAlignment="Top" Width="96" FontFamily="Century Gothic" FontSize="18.667" Height="35"/>
+        <ComboBox x:Name="cbModelo" HorizontalAlignment="Left" Margin="684,185,0,0" VerticalAlignment="Top" Width="227" Height="35"/>
+        <TextBox x:Name="txtModelo" HorizontalAlignment="Left" Height="33" Margin="684,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" FontFamily="Century Gothic" FontSize="16" TextChanged="textBox_TextChanged"/>
+        <Grid x:Name="dlLista" HorizontalAlignment="Left" Height="128" Margin="212,309,0,0" VerticalAlignment="Top" Width="587"/>
 
 
     </Grid>

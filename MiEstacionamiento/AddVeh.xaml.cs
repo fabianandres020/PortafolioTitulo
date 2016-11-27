@@ -33,10 +33,20 @@ namespace MiEstacionamiento
             try
             {
                 string marca = txtMarca.Text.Trim();
-                string modelo = txtModelo.Text.Trim();
-               
+                if(marca.Length==0 )
+                {
+                    errorMarca.Text = "Debe Ingresar Datos";
+                }
+                else
+                {
+                    ApiOperacion ops = new ApiOperacion();
+                    Marca _marca = ops.IngresarMarca(marca);
+
+                    await this.ShowMessageAsync("Exito", "Ingreso exitosa");
+                }
+                
+                   
               
-                await this.ShowMessageAsync("Exito", "Ingreso exitosa");
             }
             catch (Exception)
             {
@@ -57,6 +67,24 @@ namespace MiEstacionamiento
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            ApiOperacion ops = new ApiOperacion();
+            Marca marca = ops.listarMarca();
+            cbModelo.SelectedValuePath = "idMarca";
+            cbModelo.DisplayMemberPath = "nombre";
+            cbModelo.ItemsSource = marca.listaMarcaVehiculo;
+
+            /*
+             * ApiOperacion ops = new ApiOperacion();
+            Rol rol = ops.ListarRol();
+            cbRol.SelectedValuePath = "idRol";
+            cbRol.DisplayMemberPath = "nombre";
+            cbRol.ItemsSource = rol.result;
+             */
         }
     }
 }

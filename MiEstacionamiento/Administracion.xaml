@@ -27,7 +27,7 @@
             </Controls:Tile.Effect>
             <Image Source="Imagenes/Car-01.png" Height="109" Width="135" RenderTransformOrigin="0.5,0.5"/>
         </Controls:Tile>
-        <Controls:Tile x:Name="btnBuscarVeh" Margin="521,146,285,228" Height="Auto" Width="Auto" Title="Buscar Vehículo" Click="btnBuscarVeh_Click" FontFamily="Century Gothic" FontSize="13.333">
+        <Controls:Tile x:Name="btnListarEstaTomados" Margin="521,146,285,228" Height="Auto" Width="Auto" Title="Lista de Estacionamientos Ocupados" Click="btnBuscarVeh_Click" FontFamily="Century Gothic" FontSize="13.333">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="4" Opacity="0.95"/>
             </Controls:Tile.Effect>
@@ -45,7 +45,7 @@
             </Controls:Tile.Effect>
             <Image Source="Imagenes/Cancel.png" Height="114" Width="114" Stretch="Fill"/>
         </Controls:Tile>
-        <Controls:Tile x:Name="btnListarEsta" Margin="789,146,10,228" Height="Auto" Width="Auto" Title="Listar Estacionamientos" Click="btnListarEstacionamientos_Click" FontFamily="Century Gothic" FontSize="13.333">
+        <Controls:Tile x:Name="btnListarEstaLibres" Margin="789,146,10,228" Height="Auto" Width="Auto" Title="Estacionamientos Libres" Click="btnListarEstacionamientos_Click" FontFamily="Century Gothic" FontSize="13.333">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="4" Opacity="0.95"/>
             </Controls:Tile.Effect>

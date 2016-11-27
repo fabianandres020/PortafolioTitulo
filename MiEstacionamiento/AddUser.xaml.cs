@@ -37,40 +37,53 @@ namespace MiEstacionamiento
             txtClave.Text = string.Empty;
             txtTelefono.Text = string.Empty;
         }
-        private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
+        private async void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            ApiOperacion ops = new ApiOperacion();
-            Rol rol = ops.ListarRol();
-            cbRol.SelectedValuePath = "idRol";
-            cbRol.DisplayMemberPath = "nombre";
-            cbRol.ItemsSource = rol.result;
+            try
+            {
+                ApiOperacion ops = new ApiOperacion();
+                Rol rol = ops.ListarRol();
+                cbRol.SelectedValuePath = "idRol";
+                cbRol.DisplayMemberPath = "nombre";
+                cbRol.ItemsSource = rol.result;
+            }
+            catch (Exception)
+            {
+                await this.ShowMessageAsync("Problemas de Conexcion", "Contacte con el administrador de la base datos");
+            }
+
         }
 
         private async void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
+            var ProgressAlert = await this.ShowProgressAsync("Conectando con el servidor", "Ingresando Usuario....");
+            ProgressAlert.SetIndeterminate(); //Infinite
             if (txtRut.Text.Length == 0)
             {
+                await ProgressAlert.CloseAsync();
                 errormessage.Text = "Ingresar Rut";
                 txtRut.Focus();
             }
             else if (txtRut.Text.Length < 8 || txtRut.Text.Length > 11)
             {
+                await ProgressAlert.CloseAsync();
                 errormessage.Text = "Ingresar Rut Valido";
-                txtRut.Focus();
             }
-            else if (txtNombre.Text.Length == 0 || txtApellidoP.Text.Length == 0 || txtApellidoM.Text.Length == 0 || txtEmail.Text.Length == 0 || cbRol.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
+            else if (txtClave.Text.Length == 0 || txtNombre.Text.Length == 0 || txtApellidoP.Text.Length == 0 || txtApellidoM.Text.Length == 0 || txtEmail.Text.Length == 0 || cbRol.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
             {
                 errormessage.Text = "Ingresar Datos";
-                txtRut.Focus();
+                await ProgressAlert.CloseAsync();
             }
             else if (!Regex.IsMatch(txtEmail.Text, @"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$"))
             {
+                await ProgressAlert.CloseAsync();
                 errormessage.Text = "Ingresar un Correo Valido.";
                 txtEmail.Select(0, txtEmail.Text.Length);
                 txtEmail.Focus();
             }
             else
             {
+                errormessage.Text = string.Empty;
                 string rut = txtRut.Text.Trim();
                 string nombre = txtNombre.Text.Trim();
                 string apellidoM = txtApellidoM.Text.Trim();
@@ -82,7 +95,20 @@ namespace MiEstacionamiento
                 string telefono = txtTelefono.Text.Trim();
                 ApiOperacion ops = new ApiOperacion();
                 Usuario user = ops.Ingresar(rut, nombre, apellidoM, apellidoP, telefono, email, clave, idRol, idEstado);
-                await this.ShowMessageAsync("Exito", "Ingreso exitosa");
+                if(user==null)
+                {
+                    await Task.Delay(2000);
+                    await ProgressAlert.CloseAsync();
+                    await this.ShowMessageAsync("Problemas de ingreso", "Usuario ya existente");
+                    txtRut.Focus();
+                }
+                else
+                {
+                    await Task.Delay(2000);
+                    await ProgressAlert.CloseAsync();
+                    await this.ShowMessageAsync("Exito", "Ingreso exitosa");
+                }
+                
             }
 
             
@@ -96,6 +122,22 @@ namespace MiEstacionamiento
             _ver.ShowDialog();
         }
 
-        
+        private void txtRut_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            {
+                int ascci = Convert.ToInt32(Convert.ToChar(e.Text));
+                if (ascci >= 48 && ascci <= 57) e.Handled = false;
+                else e.Handled = true;
+            }
+        }
+
+        private void txtTelefono_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            {
+                int ascci = Convert.ToInt32(Convert.ToChar(e.Text));
+                if (ascci >= 48 && ascci <= 57) e.Handled = false;
+                else e.Handled = true;
+            }
+        }
     }
 }

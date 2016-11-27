@@ -48,6 +48,40 @@ namespace Negocio
             }
 
         }
+        public Marca listarMarca()
+        {
+            string endpoint = this.baseUrl + "/marcaVehiculo/selectAll";
+            string method = "POST";
+            WebClient wc = new WebClient();
+            wc.Headers["Content-Type"] = "application/json";
+            try
+            {
+                string response = wc.UploadString(endpoint, method);
+                // IList<Usuario> cliente = JsonConvert.DeserializeObject<IList<Usuario>>(response);
+                return JsonConvert.DeserializeObject<Marca>(response);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public Modelo listarModelo()
+        {
+            string endpoint = this.baseUrl + "/modelo/selectAll";
+            string method = "POST";
+            WebClient wc = new WebClient();
+            wc.Headers["Content-Type"] = "application/json";
+            try
+            {
+                string response = wc.UploadString(endpoint, method);
+                // IList<Usuario> cliente = JsonConvert.DeserializeObject<IList<Usuario>>(response);
+                return JsonConvert.DeserializeObject<Modelo>(response);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
         public Rol ListarRol()
         {
             string endpoint = this.baseUrl + "/rol/selectAll";
@@ -229,8 +263,52 @@ namespace Negocio
             }
         }  
         
-        
+        public Marca IngresarMarca(string nombre )
+        {
+            string idmarca = null;
+            string endpoint = this.baseUrl + "/marcaVehiculo/insert";
+            string method = "POST";
+            string json = JsonConvert.SerializeObject(new
+            {
+                idMarca = idmarca,
+                nombre = nombre              
+              
+            });
+            WebClient wc = new WebClient();
+            wc.Headers["Content-Type"] = "application/json";
+            try
+            {
+                string response = wc.UploadString(endpoint, method, json);
+                return JsonConvert.DeserializeObject<Marca>(response);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
+        public Modelo IngresarModelo(string nombre, int anno)
+        {
+            string endpoint = this.baseUrl + "/marcaVehiculo/insert";
+            string method = "POST";
+            string json = JsonConvert.SerializeObject(new
+            {
+                nombre = nombre,
+                año = anno
+
+            });
+            WebClient wc = new WebClient();
+            wc.Headers["Content-Type"] = "application/json";
+            try
+            {
+                string response = wc.UploadString(endpoint, method, json);
+                return JsonConvert.DeserializeObject<Modelo>(response);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
     }
 
