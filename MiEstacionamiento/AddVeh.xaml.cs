@@ -71,20 +71,50 @@ namespace MiEstacionamiento
 
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                ApiOperacion ops = new ApiOperacion();
+                Marca marca = ops.listarMarca();
+                cbModelo.SelectedValuePath = "idMarca";
+                cbModelo.DisplayMemberPath = "nombre";
+                cbModelo.ItemsSource = marca.listaMarcaVehiculo;
+                dataMarca.ItemsSource = marca.listaMarcaVehiculo;
+            }
+            catch (Exception)
+            {
 
-            ApiOperacion ops = new ApiOperacion();
-            Marca marca = ops.listarMarca();
-            cbModelo.SelectedValuePath = "idMarca";
-            cbModelo.DisplayMemberPath = "nombre";
-            cbModelo.ItemsSource = marca.listaMarcaVehiculo;
+            }
+           
 
-            /*
-             * ApiOperacion ops = new ApiOperacion();
-            Rol rol = ops.ListarRol();
-            cbRol.SelectedValuePath = "idRol";
-            cbRol.DisplayMemberPath = "nombre";
-            cbRol.ItemsSource = rol.result;
-             */
+          }
+
+        private async void btnMarca_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string modelo = txtModelo.Text.Trim();
+                int idmarca = (int)cbModelo.SelectedValue;
+                
+                if (modelo.Length == 0)
+                {
+                    errorModelo.Text = "Debe Ingresar Datos";
+                }
+                else
+                {
+                    ApiOperacion ops = new ApiOperacion();
+                    Modelo _modelo = ops.IngresarModelo(modelo,idmarca);
+
+                    await this.ShowMessageAsync("Exito", "Ingreso exitosa");
+                }
+
+
+
+            }
+            catch (Exception)
+            {
+
+                await this.ShowMessageAsync("Ingreso Erroneo", "Asegura ingreso de un usuario y/o propietario existente");
+            }
         }
     }
 }

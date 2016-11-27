@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
+using Negocio;
 
 namespace MiEstacionamiento
 {
@@ -22,6 +23,8 @@ namespace MiEstacionamiento
     /// </summary>
     public partial class Menu : MetroWindow
     {
+
+        public string bienvenida;
         public Menu()
         {
             InitializeComponent();
@@ -55,6 +58,12 @@ namespace MiEstacionamiento
             //cerrar esta ventana 
             this.Close();
             _ver.ShowDialog();
+        }
+
+        private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            //txtBienvenida.Text = bienvenida;
         }
     }
 }

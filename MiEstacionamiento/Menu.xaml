@@ -10,7 +10,7 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"              
-        Title="Menu" Height="555" Width="1024" Background="AliceBlue" WindowStartupLocation="CenterScreen">
+        Title="Menu" Height="555" Width="1024" Background="AliceBlue" WindowStartupLocation="CenterScreen" Loaded="MetroWindow_Loaded">
 
     <Grid>
         <Controls:Tile x:Name="btnModifica" Margin="430,64,316,271" Height="Auto" Width="Auto" Title="Modificacion de usuario" Click="Tile_Click">
@@ -44,5 +44,7 @@
             <Image Source="Imagenes/Help.png" Height="148" Width="148"/>
         </Controls:Tile>
         <Image x:Name="image" HorizontalAlignment="Left" Height="274" VerticalAlignment="Top" Width="456" Source="Imagenes/Logo.png" Margin="-26,10,0,0"/>
+        <Label x:Name="label" Content="bienvenido SR :" HorizontalAlignment="Left" Margin="407,15,0,0" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="20" Visibility="Hidden"/>
+        <TextBlock x:Name="txtBienvenida" HorizontalAlignment="Left" Margin="571,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="20" Width="156" Height="30"/>
     </Grid>
 </Controls:MetroWindow>

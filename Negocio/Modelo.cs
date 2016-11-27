@@ -10,7 +10,8 @@ namespace Negocio
     {
         public int idModelo { get; set; }
         public string nombre { get; set; }
-        public int? año { get; set; }
+        public int año { get; set; }
+        public int idMarca { get; set; }
     }
 
     public class Modelo
@@ -18,5 +19,6 @@ namespace Negocio
         public object msg { get; set; }
         public IList<ListaModelo> listaModelos { get; set; }
     }
+
 
 }

@@ -48,40 +48,7 @@ namespace Negocio
             }
 
         }
-        public Marca listarMarca()
-        {
-            string endpoint = this.baseUrl + "/marcaVehiculo/selectAll";
-            string method = "POST";
-            WebClient wc = new WebClient();
-            wc.Headers["Content-Type"] = "application/json";
-            try
-            {
-                string response = wc.UploadString(endpoint, method);
-                // IList<Usuario> cliente = JsonConvert.DeserializeObject<IList<Usuario>>(response);
-                return JsonConvert.DeserializeObject<Marca>(response);
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
-        public Modelo listarModelo()
-        {
-            string endpoint = this.baseUrl + "/modelo/selectAll";
-            string method = "POST";
-            WebClient wc = new WebClient();
-            wc.Headers["Content-Type"] = "application/json";
-            try
-            {
-                string response = wc.UploadString(endpoint, method);
-                // IList<Usuario> cliente = JsonConvert.DeserializeObject<IList<Usuario>>(response);
-                return JsonConvert.DeserializeObject<Modelo>(response);
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
+      
         public Rol ListarRol()
         {
             string endpoint = this.baseUrl + "/rol/selectAll";
@@ -219,15 +186,21 @@ namespace Negocio
             }
         public UsuarioTest GetUserDetails(UsuarioTest user)
             {
-            string endpoint = this.baseUrl + "/usuario/" + user.result.rutUsuario;
+            string endpoint = this.baseUrl + "/usuario/selectByRut" ;
             string access_token = user.access_token;
+            string method = "POST";
+            string json = JsonConvert.SerializeObject(new
+            {
+                rutUsuario = user.result.rutUsuario
+
+            });
 
             WebClient wc = new WebClient();
             wc.Headers["Content-Type"] = "application/json";
             wc.Headers["Authorization"] = access_token;
             try
             {
-                string response = wc.DownloadString(endpoint);
+                string response = wc.UploadString(endpoint, method, json);
                 user = JsonConvert.DeserializeObject<UsuarioTest>(response);
                 user.access_token = access_token;
                 return user;
@@ -286,15 +259,19 @@ namespace Negocio
                 return null;
             }
         }
-
-        public Modelo IngresarModelo(string nombre, int anno)
+        public Modelo IngresarModelo(string nombre,int idMarca)
         {
-            string endpoint = this.baseUrl + "/marcaVehiculo/insert";
+            string idmodelo = null;
+            int año = 2016;
+            string endpoint = this.baseUrl + "/modelo/insert";
             string method = "POST";
             string json = JsonConvert.SerializeObject(new
             {
+                idModelo = idmodelo,
                 nombre = nombre,
-                año = anno
+                ano=año,
+                idMarca = idMarca
+
 
             });
             WebClient wc = new WebClient();
@@ -302,6 +279,40 @@ namespace Negocio
             try
             {
                 string response = wc.UploadString(endpoint, method, json);
+                return JsonConvert.DeserializeObject<Modelo>(response);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public Marca listarMarca()
+        {
+            string endpoint = this.baseUrl + "/marcaVehiculo/selectAll";
+            string method = "POST";
+            WebClient wc = new WebClient();
+            wc.Headers["Content-Type"] = "application/json";
+            try
+            {
+                string response = wc.UploadString(endpoint, method);
+                // IList<Usuario> cliente = JsonConvert.DeserializeObject<IList<Usuario>>(response);
+                return JsonConvert.DeserializeObject<Marca>(response);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public Modelo listarModelo()
+        {
+            string endpoint = this.baseUrl + "/modelo/selectAll";
+            string method = "POST";
+            WebClient wc = new WebClient();
+            wc.Headers["Content-Type"] = "application/json";
+            try
+            {
+                string response = wc.UploadString(endpoint, method);
+                // IList<Usuario> cliente = JsonConvert.DeserializeObject<IList<Usuario>>(response);
                 return JsonConvert.DeserializeObject<Modelo>(response);
             }
             catch (Exception)

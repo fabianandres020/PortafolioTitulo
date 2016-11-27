@@ -86,8 +86,8 @@ namespace MiEstacionamiento
                         Globals.LoggedInUser = user;
                         await Task.Delay(3000);
                         await ProgressAlert.CloseAsync();
-                      
-                        Menu _ver = new Menu();
+                         Menu _ver = new Menu();
+                        _ver.bienvenida =user.result.nombre+" "+user.result.apellidoPaterno;
                     //cerrar esta ventana 
                     this.Close();
                     _ver.ShowDialog();
