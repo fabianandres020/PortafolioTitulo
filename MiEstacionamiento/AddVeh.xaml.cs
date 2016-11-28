@@ -15,6 +15,7 @@ using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
 using Negocio;
+using System.Data;
 
 namespace MiEstacionamiento
 {
@@ -30,12 +31,18 @@ namespace MiEstacionamiento
 
         private async void btnGuardarVeh_Click(object sender, RoutedEventArgs e)
         {
+            errorMarca.Text = string.Empty;
+            errorModelo.Text = string.Empty;
+            var ProgressAlert = await this.ShowProgressAsync("Conectando con el servidor", "Ingresando Modelo....");
+            ProgressAlert.SetIndeterminate(); //Infinite
             try
             {
                 string marca = txtMarca.Text.Trim();
                 if(marca.Length==0 )
                 {
+                    await ProgressAlert.CloseAsync();
                     errorMarca.Text = "Debe Ingresar Datos";
+                    txtMarca.Focus();
                 }
                 else
                 {
@@ -43,11 +50,20 @@ namespace MiEstacionamiento
                     Marca _marca = ops.IngresarMarca(marca);
                     if(_marca.response)
                     {
+                        await Task.Delay(2000);
+                        await ProgressAlert.CloseAsync();
                         await this.ShowMessageAsync("Exito", "Ingreso exitoso");
+                        txtMarca.Text = string.Empty;
+                        txtMarca.Focus();
                     }
                     else
                     {
-                        await this.ShowMessageAsync("Error", "Intente Nuevamente");
+                        await Task.Delay(1000);
+                        await ProgressAlert.CloseAsync();
+                        string mensaje = _marca.msg.ToString();
+                        await this.ShowMessageAsync("Error", mensaje);
+                        txtMarca.Text = string.Empty;
+                        txtMarca.Focus();
                     }
                     
                 }
@@ -58,7 +74,7 @@ namespace MiEstacionamiento
             catch (Exception)
             {
 
-                await this.ShowMessageAsync("Ingreso Erroneo", "Asegura ingreso de un usuario y/o propietario existente");
+                await this.ShowMessageAsync("Error de Conexcion", "Contacte al administrador");
             }
 
 
@@ -85,7 +101,11 @@ namespace MiEstacionamiento
                 cbModelo.SelectedValuePath = "idMarca";
                 cbModelo.DisplayMemberPath = "nombre";
                 cbModelo.ItemsSource = marca.listaMarcaVehiculo;
-                dataMarca.ItemsSource = marca.listaMarcaVehiculo;
+
+                Marca marca_modelo = ops.listarMarcaYModelo();
+               
+
+               // dataMarca.ItemsSource = marca.listaMarcaVehiculo;
             }
             catch (Exception)
             {
@@ -97,36 +117,61 @@ namespace MiEstacionamiento
 
         private async void btnMarca_Click(object sender, RoutedEventArgs e)
         {
+            errorMarca.Text = string.Empty;
+            errorModelo.Text = string.Empty;
+            var ProgressAlert = await this.ShowProgressAsync("Conectando con el servidor", "Ingresando Modelo....");
+            ProgressAlert.SetIndeterminate(); //Infinite
             try
             {
                 string modelo = txtModelo.Text.Trim();
-                int idmarca = (int)cbModelo.SelectedValue;
-                
-                if (modelo.Length == 0)
+               
+                if (cbModelo.SelectedIndex==-1)
                 {
+                    await ProgressAlert.CloseAsync();
                     errorModelo.Text = "Debe Ingresar Datos";
+                    cbModelo.Focus();
+                }
+                else if (modelo.Length == 0)
+                {
+                  
+                    await ProgressAlert.CloseAsync();
+                    errorModelo.Text = "Debe Ingresar Datos";
+                    txtModelo.Focus();
                 }
                 else
                 {
+                    int idmarca = (int)cbModelo.SelectedValue;
                     ApiOperacion ops = new ApiOperacion();
                     Modelo _modelo = ops.IngresarModelo(modelo,idmarca);
                     if(_modelo.response)
                     {
-                        await this.ShowMessageAsync("Exito", "Ingreso exitosa");
+                        await Task.Delay(2000);
+                        await ProgressAlert.CloseAsync();
+                        await this.ShowMessageAsync("Exito", "Ingreso de modelo completado");
+                        txtModelo.Text = string.Empty;
+                        txtModelo.Focus();
                     }
                     else
                     {
-                        await this.ShowMessageAsync("Error", "Ingreso erroneo compruebe los datos y ingrese nuevamente");
+                        txtModelo.Text = string.Empty;
+                        await Task.Delay(1000);
+                        await ProgressAlert.CloseAsync();
+                        string mensaje = _modelo.msg.ToString();
+                        await this.ShowMessageAsync("Error", mensaje);
+                        txtModelo.Focus();
                     }
 
-                  
+
                 }
    
             }
             catch (Exception)
             {
+                await Task.Delay(1000);
+                await ProgressAlert.CloseAsync();
+                await this.ShowMessageAsync("Error de Conexcion", "Conctactar al administrador");
+                txtModelo.Focus();
 
-                await this.ShowMessageAsync("Ingreso Erroneo", "Asegura ingreso de un modelo existente");
             }
         }
     }

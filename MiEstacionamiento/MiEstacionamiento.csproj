@@ -93,6 +93,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="EstacionamientosDisponibles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EstacionamientosOcupados.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Lista.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -113,6 +121,12 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EstacionamientosDisponibles.xaml.cs">
+      <DependentUpon>EstacionamientosDisponibles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EstacionamientosOcupados.xaml.cs">
+      <DependentUpon>EstacionamientosOcupados.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lista.xaml.cs">
       <DependentUpon>Lista.xaml</DependentUpon>

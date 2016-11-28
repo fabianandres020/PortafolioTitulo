@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiOperacion.cs" />
+    <Compile Include="Estacionamiento.cs" />
     <Compile Include="Globals.cs" />
     <Compile Include="ListaUsuario.cs" />
     <Compile Include="Marca.cs" />

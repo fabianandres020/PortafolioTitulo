@@ -36,7 +36,6 @@
         <TextBox x:Name="txtModelo" HorizontalAlignment="Left" Height="33" Margin="684,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" FontFamily="Century Gothic" FontSize="16" TextChanged="textBox_TextChanged"/>
         <Button x:Name="btnMarca" Content="Guardar" HorizontalAlignment="Left" Margin="684,251,0,0" VerticalAlignment="Top" Width="227" FontFamily="Century Gothic" Click="btnMarca_Click"/>
         <TextBlock x:Name="errorModelo" HorizontalAlignment="Left" Margin="684,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" FontFamily="Century Gothic" Foreground="Red" FontWeight="Bold" Height="15"/>
-        <DataGrid x:Name="dataMarca" HorizontalAlignment="Left" Margin="84,359,0,0" VerticalAlignment="Top" Height="91" Width="376"/>
 
 
     </Grid>

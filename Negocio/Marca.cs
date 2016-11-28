@@ -10,6 +10,8 @@ namespace Negocio
     {
         public int idMarca { get; set; }
         public string nombre { get; set; }
+        public IList<ListaModelo> listaModelos { get; set; }
+
     }
 
     public class Marca

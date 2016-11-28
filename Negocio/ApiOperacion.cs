@@ -262,14 +262,16 @@ namespace Negocio
         public Modelo IngresarModelo(string nombre,int idMarca)
         {
             string idmodelo = null;
-            int año = 2016;
+            int? anio = null;
             string endpoint = this.baseUrl + "/modelo/insert";
             string method = "POST";
             string json = JsonConvert.SerializeObject(new
             {
                 idModelo = idmodelo,
-                nombre = nombre,
+                nombreModelo = nombre,
+                anio=anio,
                 idMarca = idMarca
+
 
 
             });
@@ -316,6 +318,58 @@ namespace Negocio
             }
             catch (Exception)
             {
+                return null;
+            }
+        }
+        public Marca listarMarcaYModelo()
+        {
+            string endpoint = this.baseUrl + "/marcaVehiculo/selectAllWithModelos";
+            string method = "POST";
+            WebClient wc = new WebClient();
+            wc.Headers["Content-Type"] = "application/json";
+            try
+            {
+                string response = wc.UploadString(endpoint, method);
+                // IList<Usuario> cliente = JsonConvert.DeserializeObject<IList<Usuario>>(response);
+                return JsonConvert.DeserializeObject<Marca>(response);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public Estacionamiento listarNoDisponibles()
+        {
+            string endpoint = this.baseUrl + "/estacionamiento/selectAllNoDisponibles";
+            string method = "POST";
+            WebClient wc = new WebClient();
+            wc.Headers["Content-Type"] = "application/json";
+            try
+            {
+                string response = wc.UploadString(endpoint, method);
+                // IList<Usuario> cliente = JsonConvert.DeserializeObject<IList<Usuario>>(response);
+                return JsonConvert.DeserializeObject<Estacionamiento>(response);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public Estacionamiento listarDisponibles()
+        {
+            string endpoint = this.baseUrl + "/estacionamiento/selectAllDisponibles";
+            string method = "POST";
+            WebClient wc = new WebClient();
+            wc.Headers["Content-Type"] = "application/json";
+            try
+            {
+                string response = wc.UploadString(endpoint, method);
+                // IList<Usuario> cliente = JsonConvert.DeserializeObject<IList<Usuario>>(response);
+                return JsonConvert.DeserializeObject<Estacionamiento>(response);
+            }
+            catch (Exception e)
+            {
+                string error = e.ToString();
                 return null;
             }
         }

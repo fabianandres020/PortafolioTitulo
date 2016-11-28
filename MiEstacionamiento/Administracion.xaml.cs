@@ -45,7 +45,10 @@ namespace MiEstacionamiento
 
         private void btnBuscarVeh_Click(object sender, RoutedEventArgs e)
         {
-
+            EstacionamientosOcupados _ver = new EstacionamientosOcupados();
+            //cerrar esta ventana 
+            this.Close();
+            _ver.ShowDialog();
         }
 
         private void tltSalir_Click(object sender, RoutedEventArgs e)
@@ -60,7 +63,10 @@ namespace MiEstacionamiento
 
         private void btnListarEstacionamientos_Click(object sender, RoutedEventArgs e)
         {
-
+            EstacionamientosDisponibles _ver = new EstacionamientosDisponibles();
+            //cerrar esta ventana 
+            this.Close();
+            _ver.ShowDialog();
         }
 
         private void btnVolver1_Click(object sender, RoutedEventArgs e)
