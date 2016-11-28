@@ -269,7 +269,6 @@ namespace Negocio
             {
                 idModelo = idmodelo,
                 nombre = nombre,
-                ano=año,
                 idMarca = idMarca
 
 

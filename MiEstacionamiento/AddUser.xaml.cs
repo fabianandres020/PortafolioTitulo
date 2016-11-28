@@ -95,18 +95,21 @@ namespace MiEstacionamiento
                 string telefono = txtTelefono.Text.Trim();
                 ApiOperacion ops = new ApiOperacion();
                 Usuario user = ops.Ingresar(rut, nombre, apellidoM, apellidoP, telefono, email, clave, idRol, idEstado);
-                if(user==null)
-                {
-                    await Task.Delay(2000);
-                    await ProgressAlert.CloseAsync();
-                    await this.ShowMessageAsync("Problemas de ingreso", "Usuario ya existente");
-                    txtRut.Focus();
-                }
-                else
+                if(user.response)
                 {
                     await Task.Delay(2000);
                     await ProgressAlert.CloseAsync();
                     await this.ShowMessageAsync("Exito", "Ingreso exitosa");
+
+                }
+                else
+                {
+                    
+
+                    await Task.Delay(2000);
+                    await ProgressAlert.CloseAsync();
+                    await this.ShowMessageAsync("Problemas de ingreso", "Usuario ya existente");
+                    txtRut.Focus();
                 }
                 
             }

@@ -16,6 +16,7 @@ namespace Negocio
 
     public class Modelo
     {
+        public bool response { get; set; }
         public object msg { get; set; }
         public IList<ListaModelo> listaModelos { get; set; }
     }

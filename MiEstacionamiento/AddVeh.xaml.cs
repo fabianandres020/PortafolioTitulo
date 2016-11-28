@@ -41,8 +41,15 @@ namespace MiEstacionamiento
                 {
                     ApiOperacion ops = new ApiOperacion();
                     Marca _marca = ops.IngresarMarca(marca);
-
-                    await this.ShowMessageAsync("Exito", "Ingreso exitosa");
+                    if(_marca.response)
+                    {
+                        await this.ShowMessageAsync("Exito", "Ingreso exitoso");
+                    }
+                    else
+                    {
+                        await this.ShowMessageAsync("Error", "Intente Nuevamente");
+                    }
+                    
                 }
                 
                    
@@ -103,17 +110,23 @@ namespace MiEstacionamiento
                 {
                     ApiOperacion ops = new ApiOperacion();
                     Modelo _modelo = ops.IngresarModelo(modelo,idmarca);
+                    if(_modelo.response)
+                    {
+                        await this.ShowMessageAsync("Exito", "Ingreso exitosa");
+                    }
+                    else
+                    {
+                        await this.ShowMessageAsync("Error", "Ingreso erroneo compruebe los datos y ingrese nuevamente");
+                    }
 
-                    await this.ShowMessageAsync("Exito", "Ingreso exitosa");
+                  
                 }
-
-
-
+   
             }
             catch (Exception)
             {
 
-                await this.ShowMessageAsync("Ingreso Erroneo", "Asegura ingreso de un usuario y/o propietario existente");
+                await this.ShowMessageAsync("Ingreso Erroneo", "Asegura ingreso de un modelo existente");
             }
         }
     }

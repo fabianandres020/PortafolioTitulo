@@ -21,6 +21,7 @@ namespace MiEstacionamiento
 
     public class Usuario
     {
+        public bool response { get; set; }
         public object msg { get; set; }
         public IList<Result> result { get; set; }
     }

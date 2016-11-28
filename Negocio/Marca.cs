@@ -14,6 +14,7 @@ namespace Negocio
 
     public class Marca
     {
+        public bool response { get; set; }
         public object msg { get; set; }
         public IList<ListaMarcaVehiculo> listaMarcaVehiculo { get; set; }
     }
