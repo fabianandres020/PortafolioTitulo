@@ -125,8 +125,8 @@ namespace MiEstacionamiento
             string email = txtEmail.Text.Trim();
             string telefono = txtTelefono.Text.Trim();
             string pass = txtPass.Text.Trim();
-            int idEstado = (int)cbEstado.SelectedValue;
-            int idRol = (int)cbRol.SelectedValue;
+                int idEstado = cbEstado.SelectedIndex + 1;
+                int idRol = cbRol.SelectedIndex + 1;
 
                 var ProgressAlert = await this.ShowProgressAsync("Conectando con el servidor", "Realizando Cambios....");
                 ProgressAlert.SetIndeterminate(); //Infinite
