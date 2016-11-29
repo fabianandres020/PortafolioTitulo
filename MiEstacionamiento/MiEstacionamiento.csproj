@@ -241,6 +241,8 @@
     <Resource Include="Imagenes\Sin título-1.png" />
     <Resource Include="Imagenes\baner.png" />
     <Resource Include="Imagenes\Logo.png" />
+    <Resource Include="Imagenes\mercedes-1135046_640.png" />
+    <Resource Include="Imagenes\mercedes-1142259_640.png" />
     <Content Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
