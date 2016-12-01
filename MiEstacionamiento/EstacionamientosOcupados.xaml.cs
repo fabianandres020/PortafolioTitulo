@@ -49,7 +49,7 @@ namespace MiEstacionamiento
         {
             try
             {
-                var ProgressAlert = await this.ShowProgressAsync("Conectando con el servidor", "Listando Estacionamientosw");
+                var ProgressAlert = await this.ShowProgressAsync("Conectando con el servidor", "Listando Estacionamientos");
                 ProgressAlert.SetIndeterminate(); //Infinite
                 await Task.Delay(2000);
                 await ProgressAlert.CloseAsync();
@@ -124,7 +124,7 @@ namespace MiEstacionamiento
 
         private void btnVolver1_Click(object sender, RoutedEventArgs e)
         {
-            Menu _ver = new Menu();
+            Administracion _ver = new Administracion();
             //cerrar esta ventana 
             this.Close();
             _ver.ShowDialog();

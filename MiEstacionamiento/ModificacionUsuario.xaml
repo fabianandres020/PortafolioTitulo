@@ -9,7 +9,7 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"              
-        Title="Sistema Mi Estacionamiento V.0.1 Modificacion Usuario" Height="555" Width="1024" Background="AliceBlue" WindowStartupLocation="CenterScreen" Loaded="MetroWindow_Loaded">
+        Title="Modificacion Usuario" Height="555" Width="1024" Background="AliceBlue" WindowStartupLocation="CenterScreen" Loaded="MetroWindow_Loaded">
     <Grid>
         <Label x:Name="label" Content="Modificacion De Usuario" HorizontalAlignment="Left" Margin="10,73,0,0" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="34.667" Height="58" Width="479"/>
         <Label x:Name="label_Copy" Content="Buscar Usuario" HorizontalAlignment="Left" Margin="4,166,0,0" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="22"/>

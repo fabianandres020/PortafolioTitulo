@@ -124,7 +124,7 @@ namespace MiEstacionamiento
 
         private void btnVolver1_Click(object sender, RoutedEventArgs e)
         {
-            Menu _ver = new Menu();
+            Administracion _ver = new Administracion();
             //cerrar esta ventana 
             this.Close();
             _ver.ShowDialog();
