@@ -49,7 +49,7 @@ namespace MiEstacionamiento
         {
             try
             {
-                var ProgressAlert = await this.ShowProgressAsync("Conectando con el servidor", "Listando Estacionamientos (EN DESARROLLO)");
+                var ProgressAlert = await this.ShowProgressAsync("Conectando con el servidor", "Listando Estacionamientos");
                 ProgressAlert.SetIndeterminate(); //Infinite
                 await Task.Delay(2000);
                 await ProgressAlert.CloseAsync();

@@ -136,6 +136,31 @@ namespace Negocio
             }
 
         }
+        public Usuario UpdateClave(string rut, string oldPass, string newPass)
+        {
+            string endpoint = this.baseUrl + "/usuario/updateClave";
+            string method = "POST";
+            string json = JsonConvert.SerializeObject(new
+            {
+                rutUsuario = rut,
+                claveAntigua = oldPass,
+                claveNueva = newPass
+
+            });
+            WebClient wc = new WebClient();
+            wc.Headers["Content-Type"] = "application/json";
+            try
+            {
+                string response = wc.UploadString(endpoint, method, json);
+                return JsonConvert.DeserializeObject<Usuario>(response);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+
+        }
+
         public Usuario Buscar (string rut)
         {
             string endpoint = this.baseUrl + "/usuario/selectByRut";

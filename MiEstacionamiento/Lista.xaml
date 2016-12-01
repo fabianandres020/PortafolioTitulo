@@ -34,5 +34,6 @@
         </Button>
         <Image x:Name="image1" Margin="730,10,10,0" Source="Imagenes/Logo.png" Height="141" VerticalAlignment="Top"/>
         <Button x:Name="btnModifica" Content="Modificar Selección " HorizontalAlignment="Left" Margin="852,475,0,0" VerticalAlignment="Top" Width="154" RenderTransformOrigin="-0.094,1.793" Click="btnModifica_Click" FontFamily="Century Gothic"/>
+        <Button x:Name="btnCambioPass" Content="Cambiar contraseña a Selección " HorizontalAlignment="Left" Margin="382,477,0,0" VerticalAlignment="Top" Width="248" RenderTransformOrigin="-0.094,1.793" FontFamily="Century Gothic" Click="btnCambioPass_Click"/>
     </Grid>
 </Controls:MetroWindow>

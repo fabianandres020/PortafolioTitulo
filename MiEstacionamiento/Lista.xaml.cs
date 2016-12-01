@@ -150,8 +150,9 @@ namespace MiEstacionamiento
                 Result usuarioSeleccionado = dataLista.SelectedItem as Result;
                 ModificacionUsuario _ver = new ModificacionUsuario();
                 _ver.rutAModificar = usuarioSeleccionado.rutUsuario;
-                _ver.ShowDialog();
                 this.Close();
+
+                _ver.ShowDialog();
 
             }
             else
@@ -163,6 +164,23 @@ namespace MiEstacionamiento
 
         }
 
-       
+        private async void btnCambioPass_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataLista.SelectedItem != null)
+            {
+                Result usuarioSeleccionado = dataLista.SelectedItem as Result;
+                CambioPass _ver = new CambioPass();
+                _ver.rutSeleccionado = usuarioSeleccionado.rutUsuario;
+                this.Close();
+                _ver.ShowDialog();
+
+
+            }
+            else
+            {
+                await this.ShowMessageAsync("Error!!", "Debe Seleccionar un usuario");
+
+            }
+        }
     }
 }

@@ -9,7 +9,7 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"              
-        Title="Agregar Maraca y Modelo" Height="555" Width="1024" Background="AliceBlue" WindowStartupLocation="CenterScreen" Loaded="MetroWindow_Loaded">
+        Title="Cambio Contraseña" Height="555" Width="1024" Background="AliceBlue" WindowStartupLocation="CenterScreen" Loaded="MetroWindow_Loaded">
 
     <Grid Margin="0,25,0,-25">
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="161" Margin="589,141,0,0" Stroke="Black" VerticalAlignment="Top" Width="357" Visibility="Hidden"/>

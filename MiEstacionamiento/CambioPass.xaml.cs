@@ -24,7 +24,7 @@ namespace MiEstacionamiento
     /// </summary>
     public partial class CambioPass : MetroWindow
     {
-        public string rutSeleccionado;
+        public string rutSeleccionado=string.Empty;
 
         public CambioPass()
         {
@@ -35,11 +35,13 @@ namespace MiEstacionamiento
         {
             errorMarca.Text = string.Empty;
             errorModelo.Text = string.Empty;
-            var ProgressAlert = await this.ShowProgressAsync("Conectando con el servidor", "Ingresando Modelo....");
+            var ProgressAlert = await this.ShowProgressAsync("Conectando con el servidor", "Actualizando Contraseña....");
             ProgressAlert.SetIndeterminate(); //Infinite
             try
             {
-                string rut = txtRut.Text.Trim();
+                string rut;
+
+                rut = txtRut.Text.Trim();
                 string passOld = txtPassOld.Text.Trim();
                 string newpass = txtNewPass.Text.Trim();
                 if(rut.Length==0 || passOld.Length==0 || newpass.Length==0)
@@ -51,13 +53,15 @@ namespace MiEstacionamiento
                 else
                 {
                     ApiOperacion ops = new ApiOperacion();
-                    Marca _marca = ops.IngresarMarca(rut);
-                    if(_marca.response)
+                    Usuario _user = ops.UpdateClave(rut,passOld,newpass);
+                    if(_user.response)
                     {
                         await Task.Delay(2000);
                         await ProgressAlert.CloseAsync();
                         await this.ShowMessageAsync("Exito", "Actualizacion Realizada");
                         txtRut.Text = string.Empty;
+                        txtNewPass.Text = string.Empty;
+                        txtPassOld.Text = string.Empty;
                         txtRut.Focus();
 
                     }
@@ -65,7 +69,7 @@ namespace MiEstacionamiento
                     {
                         await Task.Delay(1000);
                         await ProgressAlert.CloseAsync();
-                        string mensaje = _marca.msg.ToString();
+                        string mensaje = _user.msg.ToString();
                         await this.ShowMessageAsync("Error", mensaje);
                         txtRut.Text = string.Empty;
                         txtRut.Focus();
@@ -99,6 +103,20 @@ namespace MiEstacionamiento
 
         private async void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
+
+            
+                if (rutSeleccionado.Length == 0)
+                {
+                    txtRut.Text = string.Empty;
+
+                }
+                else
+                {
+                    txtRut.Text = rutSeleccionado;
+
+                }
+            
+            
             //await CargarMarcas();
 
         }
