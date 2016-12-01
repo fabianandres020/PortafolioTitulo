@@ -29,6 +29,11 @@ namespace MiEstacionamiento
         public AddUser()
         {
             InitializeComponent();
+            LimpiarCampos();
+        }
+
+        private void LimpiarCampos()
+        {
             txtRut.Text = string.Empty;
             txtNombre.Text = string.Empty;
             txtApellidoM.Text = string.Empty;
@@ -36,7 +41,10 @@ namespace MiEstacionamiento
             txtEmail.Text = string.Empty;
             txtClave.Text = string.Empty;
             txtTelefono.Text = string.Empty;
+            cbEstado.SelectedItem = null;
+            cbRol.SelectedItem = null;
         }
+
         private async void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
             try
@@ -99,7 +107,8 @@ namespace MiEstacionamiento
                 {
                     await Task.Delay(2000);
                     await ProgressAlert.CloseAsync();
-                    await this.ShowMessageAsync("Exito", "Ingreso exitosa");
+                    await this.ShowMessageAsync("Exito", "Ingreso Exitoso");
+                    LimpiarCampos();
 
                 }
                 else

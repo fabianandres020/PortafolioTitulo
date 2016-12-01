@@ -85,6 +85,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CambioPass.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="AddVeh.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -111,6 +115,9 @@
     </Page>
     <Compile Include="AddUser.xaml.cs">
       <DependentUpon>AddUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CambioPass.xaml.cs">
+      <DependentUpon>CambioPass.xaml</DependentUpon>
     </Compile>
     <Compile Include="AddVeh.xaml.cs">
       <DependentUpon>AddVeh.xaml</DependentUpon>
@@ -243,6 +250,9 @@
     <Resource Include="Imagenes\Logo.png" />
     <Resource Include="Imagenes\mercedes-1135046_640.png" />
     <Resource Include="Imagenes\mercedes-1142259_640.png" />
+    <Resource Include="Imagenes\urbanisme.png" />
+    <Resource Include="Imagenes\urbanismeblac.png" />
+    <Resource Include="Imagenes\lockbueno.png" />
     <Content Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />

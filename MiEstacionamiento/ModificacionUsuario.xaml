@@ -42,8 +42,8 @@
         <Image x:Name="image1" Margin="739,10,0,0" Source="Imagenes/Logo.png" HorizontalAlignment="Left" Width="277" Height="146" VerticalAlignment="Top" Loaded="image1_Loaded"/>
         <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="522,173,0,0" VerticalAlignment="Top" Width="104" Click="btnBuscar_Click" Height="33"/>
         <TextBlock Height="20" HorizontalAlignment="Left" x:Name ="errormessage" VerticalAlignment="Top" Width="247" Margin="237,206,0,0" Foreground="#FFE5572C" FontFamily="Century Gothic" FontSize="13.333" FontWeight="Bold" OpacityMask="#FFFD0000" />
-        <Label x:Name="label4_Copy1" Content="Clave" HorizontalAlignment="Left" Margin="552,267,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="132"/>
-        <TextBox x:Name="txtPass" HorizontalAlignment="Left" Height="29" Margin="633,267,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="16" IsReadOnly="True" IsEnabled="False"/>
+        <Label x:Name="label4_Copy1" Content="Clave" HorizontalAlignment="Left" Margin="552,267,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Height="35" Width="132" Visibility="Hidden"/>
+        <TextBox x:Name="txtPass" HorizontalAlignment="Left" Height="29" Margin="633,267,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" FontFamily="Century Gothic" FontSize="16" IsReadOnly="True" IsEnabled="False" Visibility="Hidden"/>
         <ComboBox x:Name="cbEstado" HorizontalAlignment="Left" Margin="633,315,0,0" VerticalAlignment="Top" Width="296" IsEnabled="False" IsReadOnly="True">
             <ComboBoxItem Content="Activo"/>
             <ComboBoxItem Content="No Activo"/>

@@ -118,7 +118,6 @@ namespace Negocio
                 apellidoMaterno = apellidoM,
                 apellidoPaterno = apellidoP,
                 correoUsuario = email,
-                claveUsuario = pass,
                 fonoUsuario = telefono,
                 idEstado=idEstado,
                 idRol=idRol

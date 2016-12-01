@@ -39,7 +39,6 @@ namespace MiEstacionamiento
                 dataLista.Columns.RemoveAt(6);
                 btnEliminar.IsEnabled = false;
                 btnModifica.IsEnabled = false;
-                btnVolver1.IsEnabled = false;
                 btnBuscar.IsEnabled = false;
 
             }
@@ -66,12 +65,21 @@ namespace MiEstacionamiento
 
         }
 
-        private void CargarListar()
+        private async void CargarListar()
         {
-            ApiOperacion ops = new ApiOperacion();
-            Usuario datos = ops.listar();
-            dataLista.ItemsSource = datos.result;
-           
+            try
+            {
+                ApiOperacion ops = new ApiOperacion();
+                Usuario datos = ops.listar();
+                dataLista.ItemsSource = datos.result;
+            }
+            catch (Exception)
+            {
+
+                await this.ShowMessageAsync("Problema de conexión :(", "Contactar a supervisor");
+
+            }
+
         }
 
         private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -89,12 +97,20 @@ namespace MiEstacionamiento
         {
             try
             {
-                Result usuarioSeleccionado = dataLista.SelectedItem as Result;
-                string rut = usuarioSeleccionado.rutUsuario;
-                ApiOperacion ops = new ApiOperacion();
-                Usuario user = ops.Elminiar(rut);
-                await this.ShowMessageAsync("Operación Realizada", "Se a eliminado al usuario");
-                CargarListar();
+                if (dataLista.SelectedIndex==-1)
+                {
+
+                    await this.ShowMessageAsync("Error", "Debe seleccionara un usuario");
+                }
+                else
+                {
+                    Result usuarioSeleccionado = dataLista.SelectedItem as Result;
+                    string rut = usuarioSeleccionado.rutUsuario;
+                    ApiOperacion ops = new ApiOperacion();
+                    Usuario user = ops.Elminiar(rut);
+                    
+                    CargarListar();
+                }
 
             }
             catch (Exception ex)
@@ -110,10 +126,21 @@ namespace MiEstacionamiento
 
         private void btnVolver1_Click(object sender, RoutedEventArgs e)
         {
-            Menu _ver = new Menu();
-            //cerrar esta ventana 
-            this.Close();
-            _ver.ShowDialog();
+            if (consultor)
+            {
+                Login _log = new Login();
+                //cerrar esta ventana 
+                this.Close();
+                _log.ShowDialog();
+            }
+            else
+            {
+                Menu _ver = new Menu();
+                //cerrar esta ventana 
+                this.Close();
+                _ver.ShowDialog();
+            }
+          
         }
 
         private async void btnModifica_Click(object sender, RoutedEventArgs e)
@@ -124,6 +151,8 @@ namespace MiEstacionamiento
                 ModificacionUsuario _ver = new ModificacionUsuario();
                 _ver.rutAModificar = usuarioSeleccionado.rutUsuario;
                 _ver.ShowDialog();
+                this.Close();
+
             }
             else
             {

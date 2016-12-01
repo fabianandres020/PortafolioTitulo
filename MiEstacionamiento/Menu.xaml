@@ -37,11 +37,11 @@
             </Controls:Tile.Effect>
             <Image Source="Imagenes/Logout.png" Height="91" Width="91"/>
         </Controls:Tile>
-        <Controls:Tile Margin="407,354,269,14" Height="Auto" Width="Auto" Title="Ayuda">
+        <Controls:Tile Margin="407,354,269,14" Height="Auto" Width="Auto" Title="Cambiar Contraseña" Click="Tile_Click_2">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="4" Opacity="0.95"/>
             </Controls:Tile.Effect>
-            <Image Source="Imagenes/Help.png" Height="148" Width="148"/>
+            <Image Source="Imagenes/urbanisme.png" Height="102" Width="118"/>
         </Controls:Tile>
         <Image x:Name="image" HorizontalAlignment="Left" Height="274" VerticalAlignment="Top" Width="456" Source="Imagenes/Logo.png" Margin="-26,10,0,0"/>
         <Label x:Name="label" Content="bienvenido SR :" HorizontalAlignment="Left" Margin="407,15,0,0" VerticalAlignment="Top" FontFamily="Lemon/Milk" FontSize="20" Visibility="Hidden"/>

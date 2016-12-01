@@ -65,5 +65,13 @@ namespace MiEstacionamiento
 
             //txtBienvenida.Text = bienvenida;
         }
+
+        private void Tile_Click_2(object sender, RoutedEventArgs e)
+        {
+            CambioPass _ver = new CambioPass();
+            //cerrar esta ventana 
+            this.Close();
+            _ver.ShowDialog();
+        }
     }
 }
