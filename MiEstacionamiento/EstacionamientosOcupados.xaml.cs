@@ -74,13 +74,13 @@ namespace MiEstacionamiento
 
             dataLista.Columns.RemoveAt(14);
             dataLista.Columns.RemoveAt(13);
-            dataLista.Columns.RemoveAt(11);
-            dataLista.Columns.RemoveAt(9);
+            //dataLista.Columns.RemoveAt(11);
+            //dataLista.Columns.RemoveAt(9);
             dataLista.Columns.RemoveAt(8);
-            dataLista.Columns.RemoveAt(7);
+            //dataLista.Columns.RemoveAt(7);
             dataLista.Columns.RemoveAt(1);
 
-            
+
 
 
 

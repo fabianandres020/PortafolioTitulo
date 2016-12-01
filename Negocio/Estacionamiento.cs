@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace Negocio
 {
-    public class listaEsta
+    public class ListaEsta
     {
         public int idEstacionamiento { get; set; }
-        public double altura { get; set; }
+        public int altura { get; set; }
         public double largo { get; set; }
         public double ancho { get; set; }
-        public int? pisoUbicacion { get; set; }
+        public int pisoUbicacion { get; set; }
         public int? numeroEst { get; set; }
-        public int idEstado { get; set; }
+        public string idEstado { get; set; }
         public int camaraVigilancia { get; set; }
-        public int tipoEstacionamiento { get; set; }
+        public string tipoEstacionamiento { get; set; }
         public string direccionEstacionamiento { get; set; }
-        public int idComuna { get; set; }
+        public string idComuna { get; set; }
         public int costoHora { get; set; }
         public string latitud { get; set; }
         public string longitud { get; set; }
@@ -29,7 +29,8 @@ namespace Negocio
     {
         public string msg { get; set; }
         public int code { get; set; }
-        public IList<listaEsta> result { get; set; }
+        public IList<ListaEsta> result { get; set; }
     }
+
 
 }
